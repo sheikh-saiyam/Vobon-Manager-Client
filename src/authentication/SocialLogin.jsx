@@ -7,6 +7,7 @@ const SocialLogin = () => {
     <div>
       <div>
         <button
+        
           // onClick={handleGoogleLogin}
           className="btn bg-yellow-400 border-none w-full rounded-full flex gap-3 items-center text-lg text-white font-semibold hover:bg-yellow-500 duration-300"
         >
