@@ -1,11 +1,77 @@
-import { useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { LuLogIn } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import useAuth from "./../hooks/useAuth";
+import Swal from "sweetalert2";
+import { MdOutlineError } from "react-icons/md";
 
 const Register = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  const navigate = useNavigate();
+  const { setUser, createNewUser, updateUserProfile } = useAuth();
+  const [error, setError] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // password validation
+    setError("");
+    if (password.length < 6) {
+      setError("Password must be at least 6 character");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setError("Password Must have a Lowercase letter");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setError("Password Must have a Uppercase letter");
+      return;
+    }
+    // password validation
+
+    createNewUser(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          setUser({
+            ...currentUser,
+            displayName: name,
+            photoURL: photo,
+          });
+        });
+        navigate("/");
+
+        // for account create modal
+        Swal.fire({
+          icon: "success",
+          title: `Account created successfully`,
+          text: `Welcome, ${name}!`,
+          showConfirmButton: false,
+          background: "#f0f8ff",
+          color: "#4B0082",
+          timer: 3000,
+        });
+      })
+      .catch((error) => {
+        if (error.message) {
+          setError(error.message);
+        }
+      });
+  };
+
   // for toggle password --->
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
@@ -26,10 +92,7 @@ const Register = () => {
             {/* Google Register */}
             <SocialLogin />
             {/* Google Register */}
-            <form
-              // onSubmit={handleRegister}
-              className="card-body p-0 gap-0"
-            >
+            <form onSubmit={handleRegister} className="card-body p-0 gap-0">
               {/* name & photo */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
                 <div className="form-control">
@@ -93,12 +156,12 @@ const Register = () => {
                   </label>
                 </div>
               </div>
-              {/* {error && (
+              {error && (
                 <label className=" flex justify-center items-center gap-2 mt-6 text-red-500 bg-red-100 p-2 rounded-lg text-center mb-2 text-lg font-semibold">
                   <MdOutlineError className="text-xl" />
                   {error}
                 </label>
-              )} */}
+              )}
               {/* button div */}
               <div className="form-control mt-4">
                 <button className="btn w-full text-lg font-bold text-white bg-primary">

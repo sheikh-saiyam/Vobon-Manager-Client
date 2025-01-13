@@ -1,11 +1,17 @@
-import { useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { LuLogIn } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 
 const Login = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+  
   // for toggle password --->
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
