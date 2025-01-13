@@ -58,7 +58,7 @@ const Register = () => {
         Swal.fire({
           icon: "success",
           title: `Account created successfully`,
-          text: `Welcome, ${name}!`,
+          text: `Welcome to Vobon Manager, ${name}!`,
           showConfirmButton: false,
           background: "#f0f8ff",
           color: "#4B0082",

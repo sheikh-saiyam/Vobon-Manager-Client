@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { LuLogIn } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   useEffect(() => {
@@ -11,7 +13,42 @@ const Login = () => {
       behavior: "smooth",
     });
   });
-  
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const navigatePath = location.state?.pathname || "/";
+
+  const { setUser, userLogin } = useAuth();
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    userLogin(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        setUser(currentUser);
+        navigate(navigatePath);
+
+        // for login modal
+        Swal.fire({
+          icon: "success",
+          title: `Welcome Back, ${currentUser.displayName}!`,
+          showConfirmButton: false,
+          background: "#f0f8ff",
+          color: "#4B0082",
+          timer: 3000,
+        });
+      })
+      .catch((err) => {
+        if (err.message) {
+          setError("Incorrect Email Or Password");
+        }
+      });
+  };
+
   // for toggle password --->
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
@@ -29,12 +66,9 @@ const Login = () => {
             </h1>
           </div>
           {/* Google Login */}
-          <SocialLogin />
+          <SocialLogin setError={setError} />
           {/* Google Login */}
-          <form
-            // onSubmit={handleLogin}
-            className="card-body p-0 gap-0"
-          >
+          <form onSubmit={handleLogin} className="card-body p-0 gap-0">
             <div className="form-control">
               <label className="label px-0">
                 <span className="font-semibold">Email</span>
@@ -69,11 +103,11 @@ const Login = () => {
                 </label>
               </div>
             </div>
-            {/* {error && (
-              <label className="block text-red-500 bg-red-100 p-2 rounded-lg text-center mb-6 text-lg font-semibold">
+            {error && (
+              <label className="mt-6 block text-red-500 bg-red-100 p-2 rounded-lg text-center text-lg font-semibold">
                 {error}
               </label>
-            )} */}
+            )}
             <div className="form-control mt-6">
               <button className="btn w-full text-lg font-bold text-white bg-primary">
                 Login
