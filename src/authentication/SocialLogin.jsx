@@ -10,7 +10,7 @@ const SocialLogin = ({ setError }) => {
 
   const { setUser, googleLogin } = useAuth();
 
-  // function for google login
+  // function for google login --->
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
