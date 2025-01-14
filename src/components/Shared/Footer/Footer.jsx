@@ -17,6 +17,7 @@ const Footer = () => {
           <div className="text-center">
             <img className="w-52 h-44 mx-auto" src={logo} alt="" />
           </div>
+
           <div className="text-center w-11/12 md:w-10/12 mx-auto">
             <h1 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold ">
               Step Into Your Dream Home Now!
@@ -124,9 +125,11 @@ const Footer = () => {
           <div className="bg-white text-primary p-2 text-2xl rounded-full cursor-pointer hover:bg-primary hover:text-white duration-300">
             <FaYoutube />
           </div>
+
           <div className="bg-white text-primary p-2 text-2xl rounded-full cursor-pointer hover:bg-primary hover:text-white duration-300">
             <FaFacebook />
           </div>
+          
           <div className="bg-white text-primary p-2 text-2xl rounded-full cursor-pointer hover:bg-primary hover:text-white duration-300">
             <FaInstagram />
           </div>
