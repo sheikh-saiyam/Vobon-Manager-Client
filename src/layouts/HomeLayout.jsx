@@ -1,5 +1,21 @@
+import AboutTheBuilding from "../components/HomeSections/AboutTheBuilding";
+import ApartmentLocation from "../components/HomeSections/ApartmentLocation";
+import Slider from "../components/HomeSections/Banner/Slider";
+
 const HomeLayout = () => {
-  return <div className="h-screen">Assignment 12</div>;
+  return (
+    <div>
+      <div className="pb-20 w-11/12 mx-auto max-w-screen-2xl">
+        <Slider></Slider>
+      </div>
+      <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
+        <AboutTheBuilding />
+      </div>
+      <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
+        <ApartmentLocation />
+      </div>
+    </div>
+  );
 };
 
 export default HomeLayout;

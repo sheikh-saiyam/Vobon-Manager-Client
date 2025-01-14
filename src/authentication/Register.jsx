@@ -90,7 +90,7 @@ const Register = () => {
               </h1>
             </div>
             {/* Google Register */}
-            <SocialLogin />
+            <SocialLogin setError={setError} />
             {/* Google Register */}
             <form onSubmit={handleRegister} className="card-body p-0 gap-0">
               {/* name & photo */}
