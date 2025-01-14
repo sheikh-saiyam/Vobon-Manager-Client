@@ -4,6 +4,8 @@ import HomeLayout from "../layouts/HomeLayout";
 import Login from "../authentication/Login";
 import Register from "../authentication/Register";
 import Apartments from "../pages/Apartments";
+import DashboardLayout from "../layouts/DashboardLayout";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
     ],
   },
   // Dashboard Layout Routes ----->
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+  },
 ]);
 
 export default router;

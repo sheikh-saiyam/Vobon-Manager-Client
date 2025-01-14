@@ -129,7 +129,7 @@ const Footer = () => {
           <div className="bg-white text-primary p-2 text-2xl rounded-full cursor-pointer hover:bg-primary hover:text-white duration-300">
             <FaFacebook />
           </div>
-          
+
           <div className="bg-white text-primary p-2 text-2xl rounded-full cursor-pointer hover:bg-primary hover:text-white duration-300">
             <FaInstagram />
           </div>
