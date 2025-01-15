@@ -31,6 +31,7 @@ const Apartments = () => {
     },
   });
 
+  // Function for change page --->  
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -96,6 +97,7 @@ const Apartments = () => {
           >
             <MdOutlineSkipPrevious size={40} />
           </button>
+
           {/* Display page numbers & page change button */}
           {Array.from({ length: totalPages }, (_, index) => (
             <button
@@ -111,6 +113,7 @@ const Apartments = () => {
             </button>
           ))}
           {/* Display page numbers & page change button */}
+
           {/* next button */}
           <button
             onClick={() => handlePageChange(currentPage + 1)}
