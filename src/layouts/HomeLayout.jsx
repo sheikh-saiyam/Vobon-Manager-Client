@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AboutTheBuilding from "../components/HomeSections/AboutTheBuilding";
 import ApartmentLocation from "../components/HomeSections/ApartmentLocation";
 import Slider from "../components/HomeSections/Banner/Slider";
+import Coupons from "../components/HomeSections/Coupons";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -18,6 +19,9 @@ const HomeLayout = () => {
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <AboutTheBuilding />
+      </div>
+      <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
+        <Coupons></Coupons>
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <ApartmentLocation />

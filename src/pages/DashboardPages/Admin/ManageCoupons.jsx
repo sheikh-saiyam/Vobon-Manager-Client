@@ -3,25 +3,15 @@ import DashboardContainer from "./../../../components/Container/DashboardContain
 import SectionHeader from "./../../../components/Shared/Section/SectionHeader";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
 import Loader from "./../../../components/Loader/Loader";
 import { MdChangeCircle } from "react-icons/md";
+import useCoupons from "../../../hooks/useCoupons";
 
 const ManageCoupons = () => {
   const api_url = import.meta.env.VITE_API_URL;
 
   // Get all coupons data ----->
-  const {
-    data: coupons,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["coupons"],
-    queryFn: async () => {
-      const { data } = await axios(`${api_url}/coupons`);
-      return data;
-    },
-  });
+  const [coupons, isLoading, refetch] = useCoupons();
 
   if (isLoading) return <Loader />;
 
@@ -65,7 +55,7 @@ const ManageCoupons = () => {
     <DashboardContainer>
       <SectionHeader
         subHeading={"Manage Coupons"}
-        heading={"Manage Discount Offers with Ease"}
+        heading={"Manage discount offers with ease"}
       />
 
       <div className="bg-white mt-12 w-full lg:w-11/12 mx-auto p-4 md:p-6 lg:p-8">

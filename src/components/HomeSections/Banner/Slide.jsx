@@ -10,7 +10,7 @@ const Slide = ({ image, text }) => {
     >
       <div className="flex px-8 items-center justify-center w-full h-full bg-gray-900/70">
         <div className="text-center">
-          <h1 className="whitespace-pre-line text-3xl font-semibold text-white lg:text-5xl sm:mb-3">
+          <h1 className="whitespace-pre-line text-3xl font-semibold text-white lg:text-5xl sm:mb-3 tracking-widest">
             {text}
           </h1>
           <br />
