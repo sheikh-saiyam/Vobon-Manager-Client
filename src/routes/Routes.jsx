@@ -12,6 +12,7 @@ import ManageMembers from "../pages/DashboardPages/Admin/ManageMembers";
 import AdminRoute from "./AdminRoute";
 import MakeAnnouncement from "../pages/DashboardPages/Admin/MakeAnnouncement";
 import ManageCoupons from "../pages/DashboardPages/Admin/ManageCoupons";
+import Dashboard from "../pages/DashboardPages/Common/Dashboard";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       // common routes for all role --->
       {
         index: true,
-        element: <MyProfile></MyProfile>,
+        element: <Dashboard></Dashboard>,
       },
       {
         path: "announcements",

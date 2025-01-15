@@ -1,17 +1,12 @@
-import SectionHeader from "../../../components/Shared/Section/SectionHeader";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
-import DashboardContainer from "./../../../components/Container/DashboardContainer";
+
 const MyProfile = () => {
   const { user } = useAuth();
   const [role] = useRole();
+  
   return (
-    <DashboardContainer>
-      <SectionHeader
-        heading={"Welcome To Dashboard"}
-        subHeading={"My Profile"}
-      />
-
+    <div>
       {/* main container */}
       <div className="bg-white mt-12 w-full md:w-4/5 lg:w-2/3 mx-auto pb-6 shadow-md rounded shadow-gray-300">
         {/* image div */}
@@ -50,7 +45,7 @@ const MyProfile = () => {
         </div>
       </div>
       {/* main container */}
-    </DashboardContainer>
+    </div>
   );
 };
 

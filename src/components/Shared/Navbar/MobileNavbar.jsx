@@ -44,8 +44,9 @@ const MobileNavbar = ({
           >
             Home
           </NavLink>
+
           <NavLink
-            to={"/available-cars"}
+            to={"/apartments"}
             onClick={() => setIsOpenMenu(false)}
             className={({ isActive }) =>
               isActive
@@ -53,59 +54,24 @@ const MobileNavbar = ({
                 : "text-base font-semibold py-1 text-primary rounded bg-transparent border my-[5px] border-primary hover:text-white hover:bg-primary hover:underline"
             }
           >
-            Available Cars
+            All Apartments
           </NavLink>
 
           {/* Private Routes */}
 
           {user && user.email && (
             <>
-              <button
-                onClick={() => (isOpen ? setIsOpen(false) : setIsOpen(true))}
-                className="my-2 flex justify-center gap-1 items-center text-base font-semibold hover:text-primary duration-200 hover:underline underline-offset-[2px]"
+              <NavLink
+                to={"/dashboard"}
+                onClick={() => setIsOpenMenu(false)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold text-base py-1 text-white rounded bg-primary border my-[5px] border-primary"
+                    : "text-base font-semibold py-1 text-primary rounded bg-transparent border my-[5px] border-primary hover:text-white hover:bg-primary hover:underline"
+                }
               >
-                Dashboard
-                <IoIosArrowDropdown className="text-xl" />
-              </button>
-              <div
-                className={`${
-                  isOpen ? "flex flex-col duration-500" : "hidden"
-                }`}
-              >
-                <NavLink
-                  to={"/add-car"}
-                  onClick={() => setIsOpenMenu(false)}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-base py-1 text-white rounded bg-primary border my-[5px] border-primary flex items-center gap-1 justify-center"
-                      : "text-base font-semibold py-1 text-primary rounded bg-transparent border my-[5px] border-primary hover:text-white hover:bg-primary hover:underline flex items-center gap-1 justify-center"
-                  }
-                >
-                  <IoAddCircle /> Add A Car
-                </NavLink>
-                <NavLink
-                  to={"/my-cars"}
-                  onClick={() => setIsOpenMenu(false)}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-base py-1 text-white rounded bg-primary border my-[5px] border-primary flex items-center gap-1 justify-center"
-                      : "text-base font-semibold py-1 text-primary rounded bg-transparent border my-[5px] border-primary hover:text-white hover:bg-primary hover:underline flex items-center gap-1 justify-center"
-                  }
-                >
-                  <FaCarSide /> My Added Cars
-                </NavLink>
-                <NavLink
-                  to={"/my-bookings"}
-                  onClick={() => setIsOpenMenu(false)}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-base py-1 text-white rounded bg-primary border my-[5px] border-primary flex items-center gap-1 justify-center"
-                      : "text-base font-semibold py-1 text-primary rounded bg-transparent border my-[5px] border-primary hover:text-white hover:bg-primary hover:underline flex items-center gap-1 justify-center"
-                  }
-                >
-                  <FaBookmark /> My Bookings
-                </NavLink>
-              </div>
+                Go To Dashboard
+              </NavLink>
             </>
           )}
           {/* Private Routes */}

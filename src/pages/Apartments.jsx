@@ -4,6 +4,7 @@ import axios from "axios";
 import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
 import { useState } from "react";
 import { useEffect } from "react";
+import { FaHandshakeSimple } from "react-icons/fa6";
 
 const Apartments = () => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const Apartments = () => {
     },
   });
 
-  // Function for change page --->  
+  // Function for change page --->
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -47,7 +48,7 @@ const Apartments = () => {
         {apartments.map((apartment, idx) => (
           <div
             key={idx}
-            className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden"
+            className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden grid place-items-stretch"
           >
             <img
               src={apartment.apartmentImage}
@@ -78,6 +79,7 @@ const Apartments = () => {
                 </div>
               </div>
               <button className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary duration-300">
+                <FaHandshakeSimple size={25} />
                 Agreement
               </button>
             </div>
@@ -88,7 +90,7 @@ const Apartments = () => {
 
       {/* Pagination controller */}
       <div>
-        <div className="mt-4 flex justify-center space-x-2">
+        <div className="mt-4 flex flex-wrap justify-center gap-3">
           {/* prev button */}
           <button
             onClick={() => handlePageChange(currentPage - 1)}
