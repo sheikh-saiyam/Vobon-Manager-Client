@@ -3,6 +3,7 @@ import AboutTheBuilding from "../components/HomeSections/AboutTheBuilding";
 import ApartmentLocation from "../components/HomeSections/ApartmentLocation";
 import Slider from "../components/HomeSections/Banner/Slider";
 import Coupons from "../components/HomeSections/Coupons";
+import ExploreApartments from "../components/HomeSections/ExploreApartments";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -19,6 +20,9 @@ const HomeLayout = () => {
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <AboutTheBuilding />
+      </div>
+      <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
+        <ExploreApartments />
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <Coupons></Coupons>

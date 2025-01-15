@@ -78,7 +78,7 @@ const Apartments = () => {
                   </h2>
                 </div>
               </div>
-              <button className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary duration-300">
+              <button className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300">
                 <FaHandshakeSimple size={25} />
                 Agreement
               </button>
