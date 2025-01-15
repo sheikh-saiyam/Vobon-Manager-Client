@@ -3,9 +3,29 @@ import DashboardContainer from "./../../../components/Container/DashboardContain
 import SectionHeader from "./../../../components/Shared/Section/SectionHeader";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "./../../../components/Loader/Loader";
+import { MdChangeCircle } from "react-icons/md";
+
 const ManageCoupons = () => {
   const api_url = import.meta.env.VITE_API_URL;
 
+  // Get all coupons data ----->
+  const {
+    data: coupons,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["coupons"],
+    queryFn: async () => {
+      const { data } = await axios(`${api_url}/coupons`);
+      return data;
+    },
+  });
+
+  if (isLoading) return <Loader />;
+
+  // post new coupon in db ----->
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,13 +36,13 @@ const ManageCoupons = () => {
       coupon_code,
       discount_Percentage,
       coupon_description,
+      availability: "available",
     };
     // post new coupon in db ----->
     try {
-      const { data } = await axios.post(`${api_url}/add-coupon`, coupon);
-      console.log(data);
-      // reset form after success
-      form.reset();
+      await axios.post(`${api_url}/add-coupon`, coupon);
+      form.reset(); // <--- reset form after success
+      refetch(); // <--- refetch after success
       // show success toast
       Swal.fire({
         icon: "success",
@@ -33,9 +53,7 @@ const ManageCoupons = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text:
-          error.message ||
-          "Something went wrong while posting the coupon!",
+        text: error.message || "Something went wrong while posting the coupon!",
         confirmButtonText: "Try Again",
       });
     } finally {
@@ -50,11 +68,11 @@ const ManageCoupons = () => {
         heading={"Manage Discount Offers with Ease"}
       />
 
-      <div className="bg-white mt-12 w-full md:w-11/12 lg:w-10/12 mx-auto p-4 md:p-6 lg:p-8">
+      <div className="bg-white mt-12 w-full lg:w-11/12 mx-auto p-4 md:p-6 lg:p-8">
         {/* text div */}
         <div className="flex justify-between gap-4 items-center">
           <h1 className="text-xl md:text-2xl lg:text-3xl text-text font-semibold tracking-wide">
-            Total Coupons: <span className="font-medium">43</span>
+            Total Coupons: <span className="font-medium">{coupons.length}</span>
           </h1>
           <div>
             <button
@@ -78,31 +96,47 @@ const ManageCoupons = () => {
                   Discount <br /> Percentage
                 </th>
                 <th className="py-4">Coupon description</th>
+                <th className="py-4 text-center">Availability</th>
                 <th className="py-4">Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="text-base">
-                <td className="py-4 flex gap-3 items-center">
-                  <h1>Coupon83</h1>
-                </td>
-                <td className="py-4">12% Percent</td>
-                <td className="py-4">Lorem ipsum dolor sit amet...</td>
-              </tr>
-              <tr className="text-base">
-                <td className="py-4 flex gap-3 items-center">
-                  <h1>Coupon83</h1>
-                </td>
-                <td className="py-4">12% Percent</td>
-                <td className="py-4">Lorem ipsum dolor sit amet...</td>
-              </tr>
-              <tr className="text-base">
-                <td className="py-4 flex gap-3 items-center">
-                  <h1>Coupon83</h1>
-                </td>
-                <td className="py-4">12% Percent</td>
-                <td className="py-4">Lorem ipsum dolor sit amet...</td>
-              </tr>
+              {coupons.map((coupon) => (
+                <tr key={coupon._id} className="text-base">
+                  <td className="py-4">
+                    <h1>{coupon.coupon_code}</h1>
+                  </td>
+                  <td className="py-4">
+                    {coupon.discount_Percentage}% Percent
+                  </td>
+                  <td className="py-4">
+                    {coupon.coupon_description.substring(0, 40)}...
+                  </td>
+                  <td className={`py-4 text-center`}>
+                    <span
+                      className={`py-1 rounded-full ${
+                        coupon.availability === "available"
+                          ? "bg-blue-100 text-blue-500 px-4"
+                          : "bg-yellow-100 text-yellow-600 px-2"
+                      }`}
+                    >
+                      {coupon.availability}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="flex gap-2 items-center">
+                      <div
+                        className="tooltip tooltip-left"
+                        data-tip="Change Coupon Availability"
+                      >
+                        <button className="bg-accent hover:tooltip-open  text-white font-bold btn">
+                          <MdChangeCircle size={25} />
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
