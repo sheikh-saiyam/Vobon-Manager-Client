@@ -31,8 +31,7 @@ const Announcements = () => {
               key={announcement._id}
               className="border border-[#dddddd] p-4 rounded-xl shadow shadow-[#dddddd]"
             >
-              
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <img
                   className="w-16 h-16"
                   src="https://cdn-icons-png.flaticon.com/512/8743/8743806.png"

@@ -11,6 +11,7 @@ import Announcements from "../pages/DashboardPages/Common/Announcements";
 import ManageMembers from "../pages/DashboardPages/Admin/ManageMembers";
 import AdminRoute from "./AdminRoute";
 import MakeAnnouncement from "../pages/DashboardPages/Admin/MakeAnnouncement";
+import ManageCoupons from "../pages/DashboardPages/Admin/ManageCoupons";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
       },
       // admin routes ----->
       {
+        path: "make-announcement",
+        element: (
+          <AdminRoute>
+            <MakeAnnouncement />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "manage-members",
         element: (
           <AdminRoute>
@@ -66,10 +75,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "make-announcement",
+        path: "manage-coupons",
         element: (
           <AdminRoute>
-            <MakeAnnouncement />
+            <ManageCoupons />
           </AdminRoute>
         ),
       },
