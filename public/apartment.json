@@ -1,0 +1,254 @@
+[
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/apartment-interior-design/2/contemporary-urban-apartment-interior-design.jpg",
+    "apartmentNumber": "A-101",
+    "floorNumber": 1,
+    "blockName": "A",
+    "rent": 150
+  },
+  {
+    "apartmentImage": "https://chiedesign.in/wp-content/uploads/2022/05/Luxury-Interior-Design-Living-Room-1080x675.jpg",
+    "apartmentNumber": "A-102",
+    "floorNumber": 1,
+    "blockName": "A",
+    "rent": 160
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/apartment-interior-design/3/elegant-three-bedroom-apartment-interior-design.jpg",
+    "apartmentNumber": "A-103",
+    "floorNumber": 1,
+    "blockName": "A",
+    "rent": 170
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/apartment-interior-design/6/modern-studio-apartment-interior-design.jpg",
+    "apartmentNumber": "B-201",
+    "floorNumber": 2,
+    "blockName": "B",
+    "rent": 180
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/apartment-interior-design/4/contemporary-urban-four-bedroom-apartment-interior-design.jpg",
+    "apartmentNumber": "B-202",
+    "floorNumber": 2,
+    "blockName": "B",
+    "rent": 190
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/custom-cabinetry/interior-works/home-interior-works-furnitures.jpg",
+    "apartmentNumber": "B-203",
+    "floorNumber": 2,
+    "blockName": "B",
+    "rent": 200
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/6/luxury-interior-work.jpg",
+    "apartmentNumber": "C-301",
+    "floorNumber": 3,
+    "blockName": "C",
+    "rent": 210
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/5/living-room-interior-work.jpg",
+    "apartmentNumber": "C-302",
+    "floorNumber": 3,
+    "blockName": "C",
+    "rent": 220
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/9/office-interior-works.jpg",
+    "apartmentNumber": "C-303",
+    "floorNumber": 3,
+    "blockName": "C",
+    "rent": 230
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/4/interior-works.jpg",
+    "apartmentNumber": "D-401",
+    "floorNumber": 4,
+    "blockName": "D",
+    "rent": 240
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/1/home-interior-works.jpg",
+    "apartmentNumber": "D-402",
+    "floorNumber": 4,
+    "blockName": "D",
+    "rent": 250
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/2/apartment-interior-work.jpg",
+    "apartmentNumber": "D-403",
+    "floorNumber": 4,
+    "blockName": "D",
+    "rent": 260
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-design/4/beauty-salon-interior-design.jpg",
+    "apartmentNumber": "E-501",
+    "floorNumber": 5,
+    "blockName": "E",
+    "rent": 270
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-design/9/home-interior-design.jpg",
+    "apartmentNumber": "E-502",
+    "floorNumber": 5,
+    "blockName": "E",
+    "rent": 280
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-design/14/modern-living-room-interior-design.jpg",
+    "apartmentNumber": "E-503",
+    "floorNumber": 5,
+    "blockName": "E",
+    "rent": 290
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-design/8/commercial-interior-design.jpg",
+    "apartmentNumber": "F-601",
+    "floorNumber": 6,
+    "blockName": "F",
+    "rent": 300
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/interior-designing-services/hall-interior-design.jpg",
+    "apartmentNumber": "F-602",
+    "floorNumber": 6,
+    "blockName": "F",
+    "rent": 310
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/3/flat-interior-work.jpg",
+    "apartmentNumber": "F-603",
+    "floorNumber": 6,
+    "blockName": "F",
+    "rent": 320
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/portfolio/interior-works/4/interior-works.jpg",
+    "apartmentNumber": "G-701",
+    "floorNumber": 7,
+    "blockName": "G",
+    "rent": 330
+  },
+  {
+    "apartmentImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTk6TAPteCzB5kMIOBW4qSm2KR1zWijtCSXg&s",
+    "apartmentNumber": "G-702",
+    "floorNumber": 7,
+    "blockName": "G",
+    "rent": 340
+  },
+  {
+    "apartmentImage": "https://i.pinimg.com/originals/e4/16/97/e416970a0e5ff386e1dc713640162738.jpg",
+    "apartmentNumber": "G-703",
+    "floorNumber": 7,
+    "blockName": "G",
+    "rent": 350
+  },
+  {
+    "apartmentImage": "https://yuandesign.asia/wp-content/uploads/2022/02/modern-luxury-living-room-with-ceiling-mirror-1024x576.jpg",
+    "apartmentNumber": "H-801",
+    "floorNumber": 8,
+    "blockName": "H",
+    "rent": 360
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/other-services/marble-and-stone-works/living-room-tile-marble-work.jpg",
+    "apartmentNumber": "H-802",
+    "floorNumber": 8,
+    "blockName": "H",
+    "rent": 370
+  },
+  {
+    "apartmentImage": "https://rugsociety.eu/inspirations-and-ideas/wp-content/uploads/2022/11/luxurious-apartments-interior-design-ideas-with-contemporary-rugs.jpg",
+    "apartmentNumber": "H-803",
+    "floorNumber": 8,
+    "blockName": "H",
+    "rent": 380
+  },
+  {
+    "apartmentImage": "https://s3da-design.com/wp-content/uploads/2024/05/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf-scaled.jpg",
+    "apartmentNumber": "I-901",
+    "floorNumber": 9,
+    "blockName": "I",
+    "rent": 390
+  },
+  {
+    "apartmentImage": "https://rac.ae/pics/other-services/marble-and-stone-works/living-room-marble-work.jpg",
+    "apartmentNumber": "I-902",
+    "floorNumber": 9,
+    "blockName": "I",
+    "rent": 400
+  },
+  {
+    "apartmentImage": "https://i.pinimg.com/originals/05/08/0e/05080e9f303b26bb4917f8f30360be87.jpg",
+    "apartmentNumber": "I-903",
+    "floorNumber": 9,
+    "blockName": "I",
+    "rent": 410
+  },
+  {
+    "apartmentImage": "https://t4.ftcdn.net/jpg/05/93/55/81/240_F_593558135_j7hTYkJlmdZBMZZq1aO0ilKo0iVTmMOV.jpg",
+    "apartmentNumber": "J-1001",
+    "floorNumber": 10,
+    "blockName": "J",
+    "rent": 420
+  },
+  {
+    "apartmentImage": "https://chiedesign.in/wp-content/uploads/2022/09/Luxury-Interiors-Living-Room-scaled.jpg",
+    "apartmentNumber": "J-1002",
+    "floorNumber": 10,
+    "blockName": "J",
+    "rent": 430
+  },
+  {
+    "apartmentImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJwtDwL4MJN5kqCdqwerCpcVQYOV9iPoTKGA&s",
+    "apartmentNumber": "J-1003",
+    "floorNumber": 10,
+    "blockName": "J",
+    "rent": 450
+  },
+  {
+    "apartmentImage": "https://www.home-designing.com/wp-content/uploads/2018/11/luxury-apartment-living-room-ideas.jpg",
+    "apartmentNumber": "K-1101",
+    "floorNumber": 11,
+    "blockName": "K",
+    "rent": 460
+  },
+  {
+    "apartmentImage": "https://design-authority.com/wp-content/uploads/2021/09/Modern-Luxury-Interior-Design-by-The-Wall-Studio.jpg",
+    "apartmentNumber": "K-1102",
+    "floorNumber": 11,
+    "blockName": "K",
+    "rent": 470
+  },
+  {
+    "apartmentImage": "https://04164096.rocketcdn.me/wp-content/uploads/2024/10/8-Interior-Design-Trends-for-Luxury-Apartments.webp",
+    "apartmentNumber": "K-1103",
+    "floorNumber": 11,
+    "blockName": "K",
+    "rent": 480
+  },
+  {
+    "apartmentImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRanrw6B2GCrr39TQwA9FcrvUGU8y3AvpzH9Q&s",
+    "apartmentNumber": "L-1201",
+    "floorNumber": 12,
+    "blockName": "L",
+    "rent": 490
+  },
+  {
+    "apartmentImage": "https://www.decorpot.com/images/1972745586modern-and-luxurious-living-room-interior-%20design-ideas_main.jpg",
+    "apartmentNumber": "L-1202",
+    "floorNumber": 12,
+    "blockName": "L",
+    "rent": 500
+  },
+  {
+    "apartmentImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHO02ScXOMijTLI8DCTuATuufBBZBZdN3Zt3UnttXJahZRZpFqPTiQ7H3N8VfIMMohKZc&usqp=CAU",
+    "apartmentNumber": "L-1203",
+    "floorNumber": 12,
+    "blockName": "L",
+    "rent": 550
+  }
+]
