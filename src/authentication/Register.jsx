@@ -6,6 +6,7 @@ import SocialLogin from "./SocialLogin";
 import useAuth from "./../hooks/useAuth";
 import Swal from "sweetalert2";
 import { MdOutlineError } from "react-icons/md";
+import axios from "axios";
 
 const Register = () => {
   useEffect(() => {
@@ -14,6 +15,8 @@ const Register = () => {
       behavior: "smooth",
     });
   });
+
+  const api_url = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
   const { setUser, createNewUser, updateUserProfile } = useAuth();
@@ -42,16 +45,27 @@ const Register = () => {
     }
     // password validation
 
+    // create new user ----->
     createNewUser(email, password)
       .then((result) => {
+        // set displayName & photoURL ----->
         const currentUser = result.user;
-        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
-          setUser({
-            ...currentUser,
-            displayName: name,
-            photoURL: photo,
-          });
-        });
+        updateUserProfile({ displayName: name, photoURL: photo }).then(
+          async () => {
+            setUser({
+              ...currentUser,
+              displayName: name,
+              photoURL: photo,
+            });
+
+            // save user data in db ----->
+            await axios.post(`${api_url}/users`, {
+              email: currentUser.email,
+              name: currentUser?.displayName,
+              photo: currentUser?.photoURL,
+            });
+          }
+        );
         navigate("/");
 
         // for account create modal

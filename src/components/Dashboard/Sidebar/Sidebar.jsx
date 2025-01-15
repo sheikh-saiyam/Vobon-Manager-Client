@@ -4,9 +4,10 @@ import CommonLinks from "./CommonLinks";
 import UserLinks from "./UserLinks";
 import MemberLinks from "./MemberLinks";
 import AdminLinks from "./AdminLinks";
+import useRole from "../../../hooks/useRole";
 
 const Sidebar = () => {
-  const role = "user";
+  const [role] = useRole();
 
   return (
     <div className="flex flex-col h-full">

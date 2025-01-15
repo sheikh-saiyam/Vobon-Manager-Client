@@ -2,8 +2,11 @@ import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const SocialLogin = ({ setError }) => {
+  const api_url = import.meta.env.VITE_API_URL;
+
   const location = useLocation();
   const navigate = useNavigate();
   const navigatePath = location.state?.pathname || "/";
@@ -13,8 +16,15 @@ const SocialLogin = ({ setError }) => {
   // function for google login --->
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((result) => {
+      .then(async (result) => {
         const currentUser = result.user;
+        // save user data in db ----->
+        await axios.post(`${api_url}/users`, {
+          email: currentUser.email,
+          name: currentUser?.displayName,
+          photo: currentUser?.photoURL,
+        });
+
         setUser(currentUser);
         navigate(navigatePath);
         // for login modal

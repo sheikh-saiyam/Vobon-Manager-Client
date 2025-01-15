@@ -6,6 +6,11 @@ import Register from "../authentication/Register";
 import Apartments from "../pages/Apartments";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
+import MyProfile from "../pages/DashboardPages/Common/MyProfile";
+import Announcements from "../pages/DashboardPages/Common/Announcements";
+import ManageMembers from "../pages/DashboardPages/Admin/ManageMembers";
+import AdminRoute from "./AdminRoute";
+import MakeAnnouncement from "../pages/DashboardPages/Admin/MakeAnnouncement";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -41,6 +46,36 @@ const router = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoute>
     ),
+    children: [
+      // common routes for all role --->
+      {
+        index: true,
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "announcements",
+        element: <Announcements></Announcements>,
+      },
+      // admin routes ----->
+      {
+        path: "manage-members",
+        element: (
+          <AdminRoute>
+            <ManageMembers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "make-announcement",
+        element: (
+          <AdminRoute>
+            <MakeAnnouncement />
+          </AdminRoute>
+        ),
+      },
+      // member routes ----->
+      // user routes ----->
+    ],
   },
 ]);
 
