@@ -27,7 +27,7 @@ const AdminHome = () => {
   return (
     <div className="w-full">
       {/* admin stats container */}
-      <div className="my-6 flex gap-6 items-center flew-wrap">
+      <div className="my-6 flex gap-6 items-center flex-wrap md:flex-nowrap">
         {/* total apartments */}
         <div className="place-items-stretch grid h-auto bg-gradient-to-r from-accent to-[#b8e5ff] w-full justify-center items-center rounded gap-4 px-3 py-6">
           <div className="flex flex-col justify-start">
@@ -126,7 +126,7 @@ const AdminHome = () => {
                 </h3>
               </div>
             </div>
-            {/* unavailable apartments */}
+            {/* Agreement apartments */}
             <div className="place-items-stretch grid h-auto bg-gradient-to-r from-[#474747] to-[#2c2c2c] w-full justify-center items-center rounded gap-4 px-3 py-6">
               <div className="flex flex-col justify-start">
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
@@ -134,7 +134,7 @@ const AdminHome = () => {
                   <span className="mt-1">0%</span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
-                  Unavailable Apartments
+                  Agreement Apartments
                 </h3>
               </div>
             </div>

@@ -33,7 +33,7 @@ const Coupons = () => {
             className="flex items-center rounded overflow-hidden relative"
           >
             {/* Left Section */}
-            <div className="bg-primary text-white text-center px-6 h-full relative flex items-center">
+            <div className="bg-accent text-white text-center px-6 h-full relative flex items-center">
               <div className="absolute inset-y-[%] left-[-20px] bg-white w-10 h-10 rounded-full border border-primary"></div>
               <h1 className="text-4xl font-bold ml-2">
                 {coupon.discount_Percentage}%

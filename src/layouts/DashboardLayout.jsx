@@ -3,8 +3,16 @@ import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import Sidebar from "../components/Dashboard/Sidebar/Sidebar";
+import { useEffect } from "react";
 
 const DashboardLayout = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
   // for responsive menu close & open --->
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -15,7 +23,7 @@ const DashboardLayout = () => {
       <div
         className={`fixed xl:relative top-0 ${
           isSidebarOpen ? "left-0" : "-left-full"
-        } xl:left-0 min-w-2/12 xl:w-3/12 max-w-[300px] md:max-w-[360px] min-h-screen bg-primary p-6 transition-all duration-500 z-50`}
+        } xl:left-0 min-w-2/12 xl:w-3/12 max-w-[300px] md:max-w-[360px] min-h-screen  bg-primary p-6 transition-all duration-500 z-50`}
       >
         <Sidebar onToggleSidebar={toggleSidebar} />
       </div>

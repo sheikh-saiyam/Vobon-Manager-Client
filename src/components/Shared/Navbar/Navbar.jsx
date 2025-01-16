@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 bg-[#f2fbff] border-secondary border-b-2">
+    <div className="sticky top-0 z-50 bg-[#f2fbff] border-accent border-b-2">
       <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
         <div>
           <Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn flex items-center bg-white shadow-sm shadow-secondary border-none hover:bg-secondary text-accent duration-300 hover:text-white rounded-full avatar"
+                  className="btn flex items-center bg-white shadow-sm shadow-secondary border-none hover:bg-accent text-accent duration-300 hover:text-white rounded-full avatar"
                 >
                   <div>
                     <span>

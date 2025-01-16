@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.init";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -55,24 +56,24 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         // For Set Token In Cookies --->
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          { email: currentUser?.email },
+          { withCredentials: true }
+        );
 
-        // await axios.post(
-        //   `${import.meta.env.VITE_API_URL}/jwt`,
-        //   { email: currentUser?.email },
-        //   { withCredentials: true }
-        // );
         setLoading(false);
       } else {
         setUser(null);
         // For Clear Token From Cookies --->
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/logout`,
+          {},
+          {
+            withCredentials: true,
+          }
+        );
 
-        // await axios.post(
-        //   `${import.meta.env.VITE_API_URL}/logout`,
-        //   {},
-        //   {
-        //     withCredentials: true,
-        //   }
-        // );
         setLoading(false);
       }
       setLoading(false);
