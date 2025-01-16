@@ -2,13 +2,13 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import DashboardContainer from "./../../../components/Container/DashboardContainer";
 import SectionHeader from "./../../../components/Shared/Section/SectionHeader";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "./../../../components/Loader/Loader";
 import { MdChangeCircle } from "react-icons/md";
 import useCoupons from "../../../hooks/useCoupons";
 
 const ManageCoupons = () => {
-  const api_url = import.meta.env.VITE_API_URL;
+  const axiosSecure = useAxiosSecure();
 
   // Get all coupons data ----->
   const [coupons, isLoading, refetch] = useCoupons();
@@ -31,7 +31,7 @@ const ManageCoupons = () => {
 
     // post new coupon in db ----->
     try {
-      await axios.post(`${api_url}/add-coupon`, coupon);
+      await axiosSecure.post(`/add-coupon`, coupon);
       form.reset(); // <--- reset form after success
       refetch(); // <--- refetch after success
       // show success toast
@@ -67,10 +67,9 @@ const ManageCoupons = () => {
       if (result.isConfirmed) {
         let newAvailability =
           coupon.availability === "available" ? "unavailable" : "available";
-        await axios.patch(
-          `${api_url}/change-coupon-availability/${coupon._id}`,
-          { availability: newAvailability }
-        );
+        await axiosSecure.patch(`/change-coupon-availability/${coupon._id}`, {
+          availability: newAvailability,
+        });
         refetch(); // <--- refetch after success
         // show success toast --->
         Swal.fire(
