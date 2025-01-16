@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardContainer from "../../../components/Container/DashboardContainer";
 import SectionHeader from "../../../components/Shared/Section/SectionHeader";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../components/Loader/Loader";
 import { HiUserRemove } from "react-icons/hi";
 
 const ManageMembers = () => {
-  const api_url = import.meta.env.VITE_API_URL;
+  const axiosSecure = useAxiosSecure();
 
   // get all members data --->
   const { data: members = [], isLoading } = useQuery({
     queryKey: ["members"],
     queryFn: async () => {
-      const { data } = await axios(`${api_url}/all-members`);
+      const { data } = await axiosSecure(`/all-members`);
       return data;
     },
   });

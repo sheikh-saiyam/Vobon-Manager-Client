@@ -2,19 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import DashboardContainer from "../../../components/Container/DashboardContainer";
 import SectionHeader from "../../../components/Shared/Section/SectionHeader";
 import Loader from "./../../../components/Loader/Loader";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Announcements = () => {
-  const api_url = import.meta.env.VITE_API_URL;
-
+  const axiosSecure = useAxiosSecure();
   // Get All Announcements ----->
   const { data: announcements = [], isLoading } = useQuery({
     queryKey: ["announcements"],
     queryFn: async () => {
-      const { data } = await axios(`${api_url}/announcements`);
+      const { data } = await axiosSecure(`/announcements`);
       return data;
     },
   });
+
   if (isLoading) return <Loader />;
   return (
     <DashboardContainer>
