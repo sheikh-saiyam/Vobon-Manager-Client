@@ -30,7 +30,7 @@ const SocialLogin = ({ setError }) => {
         // for login modal
         Swal.fire({
           icon: "success",
-          title: `Welcome Back, ${currentUser.displayName}!`,
+          title: `Welcome \n ${currentUser.displayName}!`,
           showConfirmButton: false,
           background: "#f0f8ff",
           color: "#4B0082",

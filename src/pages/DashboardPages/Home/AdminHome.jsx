@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { FaUser } from "react-icons/fa";
 import { FaUsersGear } from "react-icons/fa6";
 import { MdOutlineApartment } from "react-icons/md";
@@ -7,18 +6,18 @@ import Loader from "./../../../components/Loader/Loader";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import { IoStatsChartSharp } from "react-icons/io5";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AdminHome = () => {
-  const api_url = import.meta.env.VITE_API_URL;
-
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const [role] = useRole();
 
   // Get admin-stats----->
   const { data: adminStats, isLoading } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
-      const { data } = await axios(`${api_url}/admin-stats`);
+      const { data } = await axiosSecure(`/admin-stats`);
       return data;
     },
   });

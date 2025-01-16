@@ -6,13 +6,13 @@ import Register from "../authentication/Register";
 import Apartments from "../pages/Apartments";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
-import MyProfile from "../pages/DashboardPages/Common/MyProfile";
 import Announcements from "../pages/DashboardPages/Common/Announcements";
 import ManageMembers from "../pages/DashboardPages/Admin/ManageMembers";
 import AdminRoute from "./AdminRoute";
 import MakeAnnouncement from "../pages/DashboardPages/Admin/MakeAnnouncement";
 import ManageCoupons from "../pages/DashboardPages/Admin/ManageCoupons";
 import Dashboard from "../pages/DashboardPages/Common/Dashboard";
+import AgreementRequests from "../pages/DashboardPages/Admin/AgreementRequests";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -68,6 +68,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "agreement-requests",
+        element: (
+          <AdminRoute>
+            <AgreementRequests />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "manage-members",
         element: (
           <AdminRoute>
@@ -84,7 +92,6 @@ const router = createBrowserRouter([
         ),
       },
       // member routes ----->
-      // user routes ----->
     ],
   },
 ]);

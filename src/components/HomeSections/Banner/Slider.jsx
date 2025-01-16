@@ -30,16 +30,16 @@ const Slider = () => {
       >
         <SwiperSlide>
           <Slide
-            image="https://static.vecteezy.com/system/resources/previews/027/789/855/large_2x/modern-luxury-apartment-with-bright-blue-light-free-photo.jpg"
-            text={`Step Into Your Dream 
-                 Home Now!`}
+            image="https://images.pexels.com/photos/6438762/pexels-photo-6438762.jpeg"
+            text="Your Dream Home is Just
+             a Step Away!"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slide
-            image="https://images.pexels.com/photos/6438762/pexels-photo-6438762.jpeg"
-            text="Your Dream Home is Just
-             a Step Away!"
+            image="https://static.vecteezy.com/system/resources/previews/027/789/855/large_2x/modern-luxury-apartment-with-bright-blue-light-free-photo.jpg"
+            text={`Step Into Your Dream 
+                 Home Now!`}
           />
         </SwiperSlide>
         <SwiperSlide>

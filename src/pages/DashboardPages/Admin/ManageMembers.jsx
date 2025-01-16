@@ -4,12 +4,17 @@ import SectionHeader from "../../../components/Shared/Section/SectionHeader";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../components/Loader/Loader";
 import { HiUserRemove } from "react-icons/hi";
+import Swal from "sweetalert2";
 
 const ManageMembers = () => {
   const axiosSecure = useAxiosSecure();
 
-  // get all members data --->
-  const { data: members = [], isLoading } = useQuery({
+  // Get all members data --->
+  const {
+    data: members = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["members"],
     queryFn: async () => {
       const { data } = await axiosSecure(`/all-members`);
@@ -18,6 +23,32 @@ const ManageMembers = () => {
   });
 
   if (isLoading) return <Loader />;
+
+  // Function for Change member role to user --->
+  const handleChangeMemberRole = (member) => {
+    Swal.fire({
+      title: "Are you sure?",
+      html: `This will change <br> the  role of  <strong>${member.name}</strong> to User.`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // change member role ----->
+        await axiosSecure.patch(`/change-member-role/${member.email}`);
+        refetch(); // <--- refetch after success
+        // show success toast --->
+        Swal.fire(
+          "Role Changed!",
+          `The role of <strong>${member.name}</strong> has been successfully changed to user.`,
+          "success"
+        );
+      }
+    });
+  };
+
   return (
     <DashboardContainer>
       <SectionHeader
@@ -66,7 +97,10 @@ const ManageMembers = () => {
                         className="tooltip tooltip-top"
                         data-tip="Remove Member"
                       >
-                        <button className="bg-red-500 hover:tooltip-open  text-white font-bold btn w-full">
+                        <button
+                          onClick={() => handleChangeMemberRole(member)}
+                          className="bg-red-500 hover:tooltip-open  text-white font-bold btn w-full"
+                        >
                           <HiUserRemove size={30} />
                         </button>
                       </div>
