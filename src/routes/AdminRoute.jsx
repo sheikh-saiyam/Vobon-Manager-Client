@@ -10,7 +10,7 @@ const AdminRoute = ({ children }) => {
 
   if (user && role === "admin") return children;
 
-  if (loading && isLoading) return <Loader />;
+  if (loading || isLoading) return <Loader />;
 
   return <Navigate state={location} to="/dashboard" />;
 };

@@ -22,7 +22,7 @@ const ExploreApartments = () => {
       </h1>
 
       {/* main container */}
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {apartments.map((apartment, idx) => (
           <Link to={"/apartments"} key={idx}>
             <div className="w-full mx-auto bg-white shadow overflow-hidden grid place-items-stretch hover:scale-105 duration-150">

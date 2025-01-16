@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Coupons = () => {
   // Get all coupons ----->
-  const [coupons] = useCoupons();
+  const [coupons] = useCoupons(true);
 
   // Functionality for copy coupon code --->
   const [copied, setCopied] = useState(false);

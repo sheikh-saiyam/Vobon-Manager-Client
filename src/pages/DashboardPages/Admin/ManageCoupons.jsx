@@ -15,7 +15,7 @@ const ManageCoupons = () => {
 
   if (isLoading) return <Loader />;
 
-  // post new coupon in db ----->
+  // Function for post new coupon in db ----->
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,6 +28,7 @@ const ManageCoupons = () => {
       coupon_description,
       availability: "available",
     };
+
     // post new coupon in db ----->
     try {
       await axios.post(`${api_url}/add-coupon`, coupon);
@@ -49,6 +50,36 @@ const ManageCoupons = () => {
     } finally {
       document.getElementById("add_coupon").close();
     }
+  };
+
+  // Function for change coupon availability --->
+  const handleChangeCouponAvailability = (coupon) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to change the availability of the coupon?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+      cancelButtonText: "Cancel",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        let newAvailability =
+          coupon.availability === "available" ? "unavailable" : "available";
+        await axios.patch(
+          `${api_url}/change-coupon-availability/${coupon._id}`,
+          { availability: newAvailability }
+        );
+        refetch(); // <--- refetch after success
+        // show success toast --->
+        Swal.fire(
+          "Updated!",
+          `Coupon availability changed to ${newAvailability}.`,
+          "success"
+        );
+      }
+    });
   };
 
   return (
@@ -119,7 +150,10 @@ const ManageCoupons = () => {
                         className="tooltip tooltip-left"
                         data-tip="Change Coupon Availability"
                       >
-                        <button className="bg-accent hover:tooltip-open  text-white font-bold btn">
+                        <button
+                          onClick={() => handleChangeCouponAvailability(coupon)}
+                          className="bg-accent hover:bg-primary hover:tooltip-open  text-white font-bold btn"
+                        >
                           <MdChangeCircle size={25} />
                         </button>
                       </div>
