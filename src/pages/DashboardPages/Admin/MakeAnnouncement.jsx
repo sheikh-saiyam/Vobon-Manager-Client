@@ -1,11 +1,11 @@
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import DashboardContainer from "../../../components/Container/DashboardContainer";
 import SectionHeader from "../../../components/Shared/Section/SectionHeader";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const MakeAnnouncement = () => {
-  const api_url = import.meta.env.VITE_API_URL;
+  const axiosSecure = useAxiosSecure();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const MakeAnnouncement = () => {
 
     // post announcement in db ----->
     try {
-      await axios.post(`${api_url}/make-announcement`, announcement);
+      await axiosSecure.post(`/make-announcement`, announcement);
       // reset form after success
       form.reset();
       // show success toast

@@ -24,12 +24,19 @@ const Announcements = () => {
       />
 
       {/* main container */}
-      <div className="bg-white rounded-2xl mt-12 w-full lg:w-11/12 mx-auto p-4 md:p-6">
-        <div className="grid gap-6 grid-cols-1">
+      <div className="bg-white rounded mt-12 w-full lg:w-11/12 mx-auto p-4 md:p-6">
+        {/* text div */}
+        <div>
+          <h1 className="text-xl md:text-2xl lg:text-3xl text-text font-semibold tracking-wide">
+            Total Announcements:{" "}
+            <span className="font-medium">{announcements.length}</span>
+          </h1>
+        </div>
+        <div className="mt-6 grid gap-6 grid-cols-1">
           {announcements.map((announcement) => (
             <div
               key={announcement._id}
-              className="border border-[#dddddd] p-4 rounded-xl shadow shadow-[#dddddd]"
+              className="border rounded border-[#dddddd] p-4 shadow shadow-[#dddddd]"
             >
               <div className="flex gap-3 items-center">
                 <img
