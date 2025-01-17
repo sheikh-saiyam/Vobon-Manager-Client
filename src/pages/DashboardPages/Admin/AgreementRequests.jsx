@@ -35,14 +35,25 @@ const AgreementRequests = () => {
       confirmButtonColor: "#4794ed",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, change it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-
-        Swal.fire({
-          title: "Success!",
-          html: `<strong>${agreement.user_details.name}'s</strong> agreement status <br/> and role have been updated`,
-          icon: "success",
-        });
+        try {
+          const { data } = await axiosSecure.patch(
+            `/accept-agreement-request/${agreement._id}`,
+            {
+              user_email: agreement.user_details.email,
+              apartment_id: agreement.apartment_id,
+            }
+          );
+          console.log(data);
+          Swal.fire({
+            title: "Success!",
+            html: `<strong>${agreement.user_details.name}'s</strong> agreement status <br/> and role have been updated`,
+            icon: "success",
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     });
   };

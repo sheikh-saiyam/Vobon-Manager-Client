@@ -118,7 +118,9 @@ const AdminHome = () => {
               <div className="flex flex-col justify-start">
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
-                  <span className="mt-1">100%</span>
+                  <span className="mt-1">
+                    {adminStats.availablePercentage}%
+                  </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
                   Available Apartments
@@ -130,7 +132,9 @@ const AdminHome = () => {
               <div className="flex flex-col justify-start">
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
-                  <span className="mt-1">0%</span>
+                  <span className="mt-1">
+                    {adminStats.agreementPercentage}%
+                  </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
                   Agreement Apartments

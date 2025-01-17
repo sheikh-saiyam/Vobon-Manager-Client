@@ -1,7 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import Loader from "./../components/Loader/Loader";
 import axios from "axios";
-import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
+import {
+  MdBlockFlipped,
+  MdOutlineSkipNext,
+  MdOutlineSkipPrevious,
+} from "react-icons/md";
 import { useState } from "react";
 import { useEffect } from "react";
 import { FaHandshakeSimple } from "react-icons/fa6";
@@ -168,10 +172,15 @@ const Apartments = () => {
               </div>
               <button
                 onClick={() => handleAgreement(apartment)}
-                className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300"
+                disabled={apartment.status === "rented"}
+                className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300 disabled:text-[#606060]"
               >
-                <FaHandshakeSimple size={25} />
-                Agreement
+                {apartment.status === "available" ? (
+                  <FaHandshakeSimple size={25} />
+                ) : (
+                  <MdBlockFlipped size={23} />
+                )}
+                {apartment.status === "available" ? "Agreement" : "Rented"}
               </button>
             </div>
           </div>
