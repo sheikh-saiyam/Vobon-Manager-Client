@@ -4,6 +4,8 @@ import SectionHeader from "../../../components/Shared/Section/SectionHeader";
 import { FaCircleXmark } from "react-icons/fa6";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import Loader from "./../../../components/Loader/Loader";
 
 const AgreementRequests = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +23,50 @@ const AgreementRequests = () => {
     },
   });
 
-  console.log(agreementRequests);
+  if (isLoading) return <Loader />;
+
+  // Function for accept agreement --->
+  const handleAcceptAgreement = (agreement) => {
+    Swal.fire({
+      title: `Are you sure \n you want to approve?`,
+      html: `Do you want to change the agreement of <br/> <strong>${agreement.user_details.name}</strong> status to Checked and the role to Member?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#4794ed",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        Swal.fire({
+          title: "Success!",
+          html: `<strong>${agreement.user_details.name}'s</strong> agreement status <br/> and role have been updated`,
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  // Function for reject agreement --->
+  const handleRejectAgreement = (agreement) => {
+    Swal.fire({
+      title: `Are you sure \n you want to reject?`,
+      html: `Do you want to reject the agreement of <br/> <strong>${agreement.user_details.name}</strong> ?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#4794ed",
+      confirmButtonText: "Yes, reject it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Success!",
+          html: `<strong>${agreement.user_details.name}'s</strong> agreement rejected`,
+          icon: "success",
+        });
+      }
+    });
+  };
 
   return (
     <DashboardContainer>
@@ -107,7 +152,12 @@ const AgreementRequests = () => {
                         className="tooltip tooltip-top"
                         data-tip="Accept Agreement"
                       >
-                        <button className="bg-accent hover:tooltip-open  text-white font-bold btn w-full">
+                        <button
+                          onClick={() =>
+                            handleAcceptAgreement(agreementRequest)
+                          }
+                          className="bg-accent hover:tooltip-open  text-white font-bold btn w-full"
+                        >
                           <FaCheckSquare size={28} />
                         </button>
                       </div>
@@ -115,7 +165,12 @@ const AgreementRequests = () => {
                         className="tooltip tooltip-top"
                         data-tip="Reject Agreement"
                       >
-                        <button className="bg-red-500 hover:tooltip-open  text-white font-bold btn w-full">
+                        <button
+                          onClick={() =>
+                            handleRejectAgreement(agreementRequest)
+                          }
+                          className="bg-red-500 hover:tooltip-open  text-white font-bold btn w-full"
+                        >
                           <FaCircleXmark size={28} />
                         </button>
                       </div>
