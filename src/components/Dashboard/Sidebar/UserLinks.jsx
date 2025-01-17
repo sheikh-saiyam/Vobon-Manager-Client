@@ -11,7 +11,7 @@ const UserLinks = () => {
         end
         className={({ isActive }) =>
           isActive
-            ? "bg-white text-primary font-semibold hover:text-white hover:bg-primary duration-300 border-2 border-white text-lg py-1 px-4 flex items-center gap-2"
+            ? "bg-white text-primary font-semibold border-2 border-white text-lg py-1 px-4 flex items-center gap-2"
             : "border-2 border-white text-white font-semibold hover:bg-white hover:text-primary duration-300 text-lg py-1 px-4 flex items-center gap-2"
         }
       >
@@ -23,7 +23,7 @@ const UserLinks = () => {
         to={"/dashboard/announcements"}
         className={({ isActive }) =>
           isActive
-            ? "bg-white text-primary font-semibold hover:text-white hover:bg-primary duration-300 border-2 border-white text-lg py-1 px-4 flex items-center gap-2"
+            ? "bg-white text-primary font-semibold border-2 border-white text-lg py-1 px-4 flex items-center gap-2"
             : "border-2 border-white text-white font-semibold hover:bg-white hover:text-primary duration-300 text-lg py-1 px-4 flex items-center gap-2"
         }
       >

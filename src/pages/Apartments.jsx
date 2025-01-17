@@ -5,6 +5,10 @@ import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
 import { useState } from "react";
 import { useEffect } from "react";
 import { FaHandshakeSimple } from "react-icons/fa6";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Apartments = () => {
   useEffect(() => {
@@ -17,6 +21,9 @@ const Apartments = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(6);
 
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
   const api_url = import.meta.env.VITE_API_URL;
 
   // get all apartments data --->
@@ -40,6 +47,87 @@ const Apartments = () => {
   };
 
   if (isLoading) return <Loader />;
+
+  // Function for save new Agreement in db --->
+  const handleAgreement = (apartment) => {
+    if (user) {
+      // get all agreementDetails ---->
+      const agreement_details = {
+        user_details: {
+          email: user.email,
+          name: user?.displayName,
+        },
+        apartment_id: apartment._id,
+        apartmentNumber: apartment.apartmentNumber,
+        floorNumber: apartment.floorNumber,
+        blockName: apartment.blockName,
+        rent: apartment.rent,
+        agreement_status: "pending",
+        agreement_request_date: new Date(),
+      };
+
+      // show confirmation modal --->
+      Swal.fire({
+        title: "Make Agreement Request",
+        text: `Do you want to send a request to
+         the owner for accessing the agreement?`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Yes, send request!",
+        confirmButtonColor: "#4794ed",
+        cancelButtonText: "No, cancel",
+      }).then(async (result) => {
+        try {
+          if (result.isConfirmed) {
+            // post agreement in db --->
+            const { data } = await axiosSecure.post(
+              "/make-agreement-request",
+              agreement_details
+            );
+            // show user success toast --->
+            if (data.insertedId) {
+              // console.log(data);
+              Swal.fire({
+                title: "Request Sent",
+                text: "Your request has been sent to the owner. You will have access to the agreement once it is accepted.",
+                icon: "success",
+              });
+            } else {
+              // console.log(data);
+              // if already had an agreement show toast --->
+              Swal.fire({
+                title: `${data?.title}`,
+                text: `${data?.message}`,
+                icon: "warning",
+              });
+            }
+          }
+        } catch (error) {
+          Swal.fire({
+            title: "Error Caught",
+            text: `${error?.message}`,
+            icon: "error",
+          });
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Login Required",
+        html: "You need to log in to proceed <br/> with the agreement.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Login",
+        confirmButtonColor: "#4794ed",
+        cancelButtonText: "OK",
+        reverseButtons: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Navigate to the login page
+          navigate("/login");
+        }
+      });
+    }
+  };
 
   return (
     <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
@@ -78,7 +166,10 @@ const Apartments = () => {
                   </h2>
                 </div>
               </div>
-              <button className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300">
+              <button
+                onClick={() => handleAgreement(apartment)}
+                className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300"
+              >
                 <FaHandshakeSimple size={25} />
                 Agreement
               </button>
