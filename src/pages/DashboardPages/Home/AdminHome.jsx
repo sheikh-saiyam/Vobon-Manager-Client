@@ -119,7 +119,8 @@ const AdminHome = () => {
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.availablePercentage}%
+                    {adminStats.availablePercentage}% 
+
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
@@ -133,7 +134,8 @@ const AdminHome = () => {
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.agreementPercentage}%
+                    {adminStats.agreementPercentage}% 
+                    
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
