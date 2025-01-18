@@ -49,7 +49,9 @@ const Payment = () => {
       SetRentPrice(discountedRent);
       setDiscountPercentage(discountPercentage);
       setDiscountedRent(discountedRent);
+
     } else {
+        
       setCouponValidMessage("Coupon is not valid");
       setIsValid(false);
     }
