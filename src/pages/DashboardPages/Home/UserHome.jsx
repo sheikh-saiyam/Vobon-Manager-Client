@@ -1,4 +1,4 @@
-import { MdApartment, MdMessage } from "react-icons/md";
+import { MdApartment } from "react-icons/md";
 import MyProfile from "../Common/MyProfile";
 import { FaInfoCircle } from "react-icons/fa";
 
@@ -76,11 +76,17 @@ const UserHome = () => {
             src="https://cdn-icons-png.flaticon.com/512/8743/8743806.png"
             alt="announcement image"
           />
-          <h1 className="text-lg md:text-xl tracking-wide lg:text-2xl font-semibold text-text">User Notice: Agreement Request Status
+          <h1 className="text-lg md:text-xl tracking-wide lg:text-2xl font-semibold text-text">
+            User Notice: Agreement Request Status
           </h1>
         </div>
         <div className="mt-1">
-          <p className="text-base font-medium tracking-wider text-text">If you have requested an agreement, please wait your agreement request is still pending or has not been accepted by the owner. Once accepted, you&apos;ll gain access to your agreement, and your role will be updated to Member. Thank you for your patience!</p>
+          <p className="text-base font-medium tracking-wider text-text">
+            If you have requested an agreement, please wait your agreement
+            request is still pending or has not been accepted by the owner. Once
+            accepted, you&apos;ll gain access to your agreement, and your role
+            will be updated to Member. Thank you for your patience!
+          </p>
         </div>
       </div>
     </div>

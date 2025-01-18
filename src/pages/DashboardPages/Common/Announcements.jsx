@@ -33,7 +33,7 @@ const Announcements = () => {
           </h1>
         </div>
         <div className="mt-6 grid gap-6 grid-cols-1">
-          {announcements.map((announcement) => (
+          {[...announcements].reverse().map((announcement) => (
             <div
               key={announcement._id}
               className="border rounded border-[#dddddd] p-4 shadow shadow-[#dddddd]"

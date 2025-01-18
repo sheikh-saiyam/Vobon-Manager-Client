@@ -13,12 +13,12 @@ const MemberHome = () => {
   return (
     <div className="flex flex-col md:flex md:flex-row items-center gap-6 w-full">
       {/* member profile */}
-      <div className="w-full md:w-7/12 h-full">
+      <div className="w-full md:w-6/12 lg:w-7/12 h-full">
         <MyProfile></MyProfile>
       </div>
 
       {/* agreement & apartment information container */}
-      <div className="mt-6 md:mt-12 h-full w-full md:w-5/12 bg-white shadow rounded shadow-gray-300 p-4 md:p-6">
+      <div className="mt-6 md:mt-12 h-full w-full md:w-6/12 lg:w-5/12 bg-white shadow rounded shadow-gray-300 p-4 md:p-6">
         {/* main text div */}
         <div>
           <h1 className="text-lg md:text-xl lg:text-2xl text-text font-semibold tracking-wide flex items-center gap-1">
@@ -89,7 +89,7 @@ const MemberHome = () => {
           {/* make payment button */}
           <div className="mt-4 w-2/3 mx-auto">
             <Link
-              to={"/make-payment"}
+              to={"/dashboard/make-payment"}
               className="btn mx-auto w-full bg-accent text-white text-base tracking-wider font-semibold rounded flex items-center gap-1 hover:bg-primary"
             >
               <FaMoneyCheck size={20} />
