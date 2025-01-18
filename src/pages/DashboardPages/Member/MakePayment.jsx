@@ -3,8 +3,19 @@ import DashboardContainer from "../../../components/Container/DashboardContainer
 import useMyAgreement from "../../../hooks/useMyAgreement";
 import Loader from "./../../../components/Loader/Loader";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const MakePayment = () => {
+  // Get selected month --->
+  const [selectedMonth, setSelectedMonth] = useState("");
+
+  const handleMonthChange = (event) => {
+    const { value } = event.target;
+    setSelectedMonth(value);
+    // set selected month in local storage --->
+    localStorage.setItem("selectedMonth", value);
+  };
+
   // Get member agreement information --->
   const [myAgreement, isLoading] = useMyAgreement();
   const { user_details, apartmentNumber, floorNumber, blockName, rent } =
@@ -97,12 +108,20 @@ const MakePayment = () => {
               </div>
             </div>
             {/* select month */}
-            <div className="mt-4">
+            <form className="mt-4">
               <label className="text-lg font-semibold text-text">
                 Select month rent you want to pay
               </label>
-              <select className="mt-3 rounded select select-bordered w-full">
-                <option disabled>Select Month</option>
+              <select
+                name="month"
+                required
+                value={selectedMonth}
+                onChange={handleMonthChange}
+                className="mt-3 rounded select select-bordered w-full"
+              >
+                <option disabled value="">
+                  Select Month
+                </option>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -116,14 +135,22 @@ const MakePayment = () => {
                 <option value="November">November</option>
                 <option value="December">December</option>
               </select>
-            </div>
+            </form>
             {/* pay button */}
             <div className="mt-5">
               <Link
                 to={"/dashboard/payment"}
+                disabled={!selectedMonth}
                 className="btn mx-auto w-2/3 bg-accent text-white text-base tracking-wider font-semibold rounded flex items-center gap-2 hover:bg-primary"
               >
-                <FaMoneyCheck size={20} /> Pay{" "}
+                {selectedMonth ? (
+                  <h1 className="flex items-center gap-2">
+                    <FaMoneyCheck size={20} />
+                    Pay
+                  </h1>
+                ) : (
+                  "Select A Month To Pay"
+                )}
               </Link>
             </div>
           </div>

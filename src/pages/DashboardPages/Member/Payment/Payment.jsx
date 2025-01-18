@@ -3,6 +3,11 @@ import DashboardContainer from "../../../../components/Container/DashboardContai
 import useCoupons from "../../../../hooks/useCoupons";
 import useMyAgreement from "../../../../hooks/useMyAgreement";
 import { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const Payment = () => {
   // Get member agreement information --->
@@ -12,6 +17,7 @@ const Payment = () => {
   // Get all coupon code & discount % --->
   const [coupon] = useCoupons(true);
 
+  const selectedMonth = localStorage.getItem("selectedMonth");
   const [isValid, setIsValid] = useState(false);
   const [couponValidMessage, setCouponValidMessage] = useState("");
   const [rentPrice, SetRentPrice] = useState(rent || 0);
@@ -49,9 +55,7 @@ const Payment = () => {
       SetRentPrice(discountedRent);
       setDiscountPercentage(discountPercentage);
       setDiscountedRent(discountedRent);
-
     } else {
-        
       setCouponValidMessage("Coupon is not valid");
       setIsValid(false);
     }
@@ -69,43 +73,68 @@ const Payment = () => {
 
       {/* main container */}
       <div className="bg-white mt-12 w-full md:w-4/5 lg:w-2/3 mx-auto px-4 py-8 md:py-10 md:px-6 lg:px-8 h-full">
-        {/* payment price */}
-        <div className="w-full flex flex-col justify-end mx-auto">
-          <div className="flex justify-end items-center gap-2 text-lg">
+        {/* selectedMonth & payment price */}
+        <div className="w-11/12 md:w-10/12 mb-4 p-4 bg-white drop-shadow rounded flex flex-col justify-center mx-auto">
+          <div className="text-center">
+            <h1 className="text-2xl lg:text-3xl font-medium">
+              ✔ Payment Confirmation
+            </h1>
+            <h1 className="mt-2 text-lg lg:text-xl font-medium">
+              {" "}
+              Review your payment details before proceeding
+            </h1>
+            <hr className="mt-4 w-11/12 mx-auto border shadow-sm" />
+          </div>
+          <div className="mt-4 w-11/12 mx-auto  flex justify-between items-center gap-2 text-lg">
+            <h1 className="font-medium">Month You Want to Pay:</h1>
+            <span>{selectedMonth}</span>
+          </div>
+          <div className="flex w-11/12 mx-auto mt-1 justify-between items-center gap-2 text-lg">
             <h1 className="font-medium">Original Rent Price:</h1>
-            <span>${rent}</span>
+            <span>
+              ${rent} <span className="text-xs">/monthly</span>
+            </span>
           </div>
           {isValid && couponValidMessage && (
             <>
-              <div className="flex justify-end items-center gap-2 text-lg">
+              <div className="flex justify-between  w-11/12 mx-auto mt-1 items-center gap-2 text-lg">
                 <h1 className="font-medium">Discount Percentage:</h1>
-                <span>{discountPercentage}%</span>
+                <span>
+                  {discountPercentage}%{" "}
+                  <span className="text-xs">/discount</span>
+                </span>
               </div>
-              <div className="flex justify-end items-center gap-2 text-lg">
+              <div className="flex justify-between  w-11/12 mx-auto mt-1 items-center gap-2 text-lg">
                 <h1 className="font-medium">Discounted Rent Price:</h1>
-                <span>${discountedRent}</span>
+                <span>
+                  ${discountedRent}{" "}
+                  <span className="text-xs">/coupon rent</span>
+                </span>
               </div>
             </>
           )}
         </div>
 
         {/* apply coupon */}
-        <form onSubmit={handleVerifyCoupon}>
+        <form
+          onSubmit={handleVerifyCoupon}
+          className="w-11/12 md:w-10/12 mx-auto"
+        >
           <div>
             <label className="text-lg font-semibold text-text">
-              Coupon Code
+              Apply Coupon Code
             </label>
             <div className="flex items-center gap-x-4 w-full">
               <input
                 type="text"
                 name="coupon_code"
                 placeholder="Enter Valid Coupon Code To Get Discount"
-                className="mt-2 w-7/12 md:w-8/12 input input-bordered rounded outline-none border-2"
+                className="mt-2 w-7/12 md:w-8/12 input input-bordered rounded outline-none border-2 "
               />
-              <div className="w-3/12 mt-4 md:w-4/12">
+              <div className="w-5/12 mt-4 md:w-4/12">
                 <button
                   disabled={isValid}
-                  className={`-mt-2 w-full btn rounded bg-transparent border-accent border-2 text-accent text-lg hover:border-accent hover:bg-accent hover:text-white font-medium ${
+                  className={`-mt-2 w-full h-full btn rounded bg-transparent border-accent border-2 text-accent text-lg hover:border-accent hover:bg-accent hover:text-white font-medium duration-300 ${
                     !!couponValidMessage &&
                     "text-red-500 border-red-500 hover:bg-red-500 hover:text-white hover:border-red-500"
                   } ${
@@ -124,14 +153,12 @@ const Payment = () => {
             {/* valid coupon message */}
           </div>
         </form>
+
         {/* payment checkout form */}
-        <div>
-          <input
-            type="text"
-            readOnly
-            placeholder="Card Number"
-            className="mt-4 w-full input input-bordered rounded outline-none"
-          />
+        <div className="w-11/12 md:w-10/12 mx-auto mt-6">
+          <Elements stripe={stripePromise}>
+            <CheckoutForm rentPrice={rentPrice} />
+          </Elements>
         </div>
       </div>
     </DashboardContainer>
