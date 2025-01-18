@@ -120,7 +120,7 @@ const MakePayment = () => {
             {/* pay button */}
             <div className="mt-5">
               <Link
-                to={"/payment"}
+                to={"/dashboard/payment"}
                 className="btn mx-auto w-2/3 bg-accent text-white text-base tracking-wider font-semibold rounded flex items-center gap-2 hover:bg-primary"
               >
                 <FaMoneyCheck size={20} /> Pay{" "}
