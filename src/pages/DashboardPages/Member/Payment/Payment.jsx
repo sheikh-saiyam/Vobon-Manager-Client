@@ -56,7 +56,7 @@ const Payment = () => {
       setDiscountPercentage(discountPercentage);
       setDiscountedRent(discountedRent);
     } else {
-      setCouponValidMessage("Coupon is not valid");
+      setCouponValidMessage("Coupon not valid");
       setIsValid(false);
     }
   };
@@ -128,7 +128,7 @@ const Payment = () => {
               <input
                 type="text"
                 name="coupon_code"
-                placeholder="Enter Valid Coupon Code To Get Discount"
+                placeholder="Enter Valid Coupon To Get Discount"
                 className="mt-2 w-7/12 md:w-8/12 input input-bordered rounded outline-none border-2 "
               />
               <div className="w-5/12 mt-4 md:w-4/12">
@@ -136,7 +136,7 @@ const Payment = () => {
                   disabled={isValid}
                   className={`-mt-2 w-full h-full btn rounded bg-transparent border-accent border-2 text-accent text-lg hover:border-accent hover:bg-accent hover:text-white font-medium duration-300 ${
                     !!couponValidMessage &&
-                    "text-red-500 border-red-500 hover:bg-red-500 hover:text-white hover:border-red-500"
+                    "text-red-500 border-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 px-1"
                   } ${
                     couponValidMessage &&
                     "disabled:text-white disabled:bg-accent"
