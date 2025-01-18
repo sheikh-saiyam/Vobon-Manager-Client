@@ -14,7 +14,7 @@ const MakePayment = () => {
 
   return (
     <DashboardContainer>
-      <div className="">
+      <div>
         {/* section header */}
         <div className="text-center">
           <h3 className="text-primary mb-2 text-lg">
@@ -30,6 +30,7 @@ const MakePayment = () => {
         <div className="bg-white mt-12 w-full md:w-4/5 lg:w-2/3 mx-auto px-4 py-8 md:py-10 md:px-6 lg:px-8">
           {/* form  */}
           <div>
+            {/* member email & apartment number */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* member email */}
               <div>
@@ -56,6 +57,7 @@ const MakePayment = () => {
                 />
               </div>
             </div>
+            {/* floor number, block name & rent */}
             <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* floor number */}
               <div>
@@ -119,7 +121,7 @@ const MakePayment = () => {
             <div className="mt-5">
               <Link
                 to={"/payment"}
-                className="btn mx-auto w-2/3 bg-accent text-white text-base tracking-wider font-semibold rounded flex items-center gap-1 hover:bg-primary"
+                className="btn mx-auto w-2/3 bg-accent text-white text-base tracking-wider font-semibold rounded flex items-center gap-2 hover:bg-primary"
               >
                 <FaMoneyCheck size={20} /> Pay{" "}
               </Link>

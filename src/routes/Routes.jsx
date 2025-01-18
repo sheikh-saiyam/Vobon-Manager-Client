@@ -15,6 +15,7 @@ import Dashboard from "../pages/DashboardPages/Common/Dashboard";
 import AgreementRequests from "../pages/DashboardPages/Admin/AgreementRequests";
 import MemberRoute from "./MemberRoute";
 import MakePayment from "../pages/DashboardPages/Member/MakePayment";
+import PaymentHistory from "../pages/DashboardPages/Member/PaymentHistory";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -99,6 +100,14 @@ const router = createBrowserRouter([
         element: (
           <MemberRoute>
             <MakePayment />
+          </MemberRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <MemberRoute>
+            <PaymentHistory />
           </MemberRoute>
         ),
       },
