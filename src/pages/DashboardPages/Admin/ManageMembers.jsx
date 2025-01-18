@@ -84,9 +84,10 @@ const ManageMembers = () => {
                   <th className="py-4">{idx + 1}</th>
                   <td className="py-4 flex gap-3 items-center">
                     <img
+                      referrerPolicy="no-referrer"
                       className="h-12 w-12 rounded-full"
                       src={member.photo}
-                      alt=""
+                      alt={member.name}
                     />
                     <h1>{member.name}</h1>
                   </td>

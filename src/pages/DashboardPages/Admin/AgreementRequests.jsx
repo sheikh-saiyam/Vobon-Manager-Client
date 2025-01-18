@@ -38,21 +38,28 @@ const AgreementRequests = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const { data } = await axiosSecure.patch(
+          await axiosSecure.patch(
             `/accept-agreement-request/${agreement._id}`,
             {
               user_email: agreement.user_details.email,
               apartment_id: agreement.apartment_id,
             }
           );
-          console.log(data);
+          refetch(); // <--- refetch after success
+          // show success toast --->
           Swal.fire({
             title: "Success!",
             html: `<strong>${agreement.user_details.name}'s</strong> agreement status <br/> and role have been updated`,
             icon: "success",
           });
         } catch (error) {
-          console.log(error);
+          Swal.fire({
+            title: "Error!",
+            text:
+              error.response?.data?.message ||
+              "Something went wrong while accepting the agreement.",
+            icon: "error",
+          });
         }
       }
     });
@@ -68,13 +75,28 @@ const AgreementRequests = () => {
       confirmButtonColor: "#d33",
       cancelButtonColor: "#4794ed",
       confirmButtonText: "Yes, reject it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Success!",
-          html: `<strong>${agreement.user_details.name}'s</strong> agreement rejected`,
-          icon: "success",
-        });
+        try {
+          await axiosSecure.patch(
+            `/reject-agreement-request/${agreement._id}`
+          );
+          refetch(); // <--- refetch after success
+          // show success toast --->
+          Swal.fire({
+            title: "Success!",
+            html: `<strong>${agreement.user_details.name}'s</strong> agreement rejected`,
+            icon: "success",
+          });
+        } catch (error) {
+          Swal.fire({
+            title: "Error!",
+            text:
+              error.response?.data?.message ||
+              "Something went wrong while rejecting the agreement.",
+            icon: "error",
+          });
+        }
       }
     });
   };
