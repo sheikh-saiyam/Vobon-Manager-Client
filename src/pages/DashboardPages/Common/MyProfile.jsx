@@ -4,11 +4,11 @@ import useRole from "../../../hooks/useRole";
 const MyProfile = () => {
   const { user } = useAuth();
   const [role] = useRole();
-  
+  // md:w-4/5 lg:w-2/3
   return (
     <div>
       {/* main container */}
-      <div className="bg-white mt-12 w-full md:w-4/5 lg:w-2/3 mx-auto pb-6 shadow-md rounded shadow-gray-300">
+      <div className="bg-white mt-12 w-full  mx-auto pb-6 shadow-md rounded shadow-gray-300">
         {/* image div */}
         <div className="relative h-fit">
           <img

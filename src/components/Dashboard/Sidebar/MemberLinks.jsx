@@ -21,7 +21,7 @@ const MemberLinks = () => {
       </NavLink>
 
       <NavLink
-        to={"/dashboard/payment"}
+        to={"/dashboard/make-payment"}
         className={({ isActive }) =>
           isActive
             ? "bg-white text-primary font-semibold border-2 border-white text-lg py-1 px-4 flex items-center gap-2"

@@ -78,9 +78,7 @@ const AgreementRequests = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axiosSecure.patch(
-            `/reject-agreement-request/${agreement._id}`
-          );
+          await axiosSecure.patch(`/reject-agreement-request/${agreement._id}`);
           refetch(); // <--- refetch after success
           // show success toast --->
           Swal.fire({

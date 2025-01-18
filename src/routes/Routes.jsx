@@ -13,6 +13,8 @@ import MakeAnnouncement from "../pages/DashboardPages/Admin/MakeAnnouncement";
 import ManageCoupons from "../pages/DashboardPages/Admin/ManageCoupons";
 import Dashboard from "../pages/DashboardPages/Common/Dashboard";
 import AgreementRequests from "../pages/DashboardPages/Admin/AgreementRequests";
+import MemberRoute from "./MemberRoute";
+import MakePayment from "../pages/DashboardPages/Member/MakePayment";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -92,6 +94,14 @@ const router = createBrowserRouter([
         ),
       },
       // member routes ----->
+      {
+        path: "make-payment",
+        element: (
+          <MemberRoute>
+            <MakePayment />
+          </MemberRoute>
+        ),
+      },
     ],
   },
 ]);
