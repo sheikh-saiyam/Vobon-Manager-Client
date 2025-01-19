@@ -17,12 +17,14 @@ import MemberRoute from "./MemberRoute";
 import MakePayment from "../pages/DashboardPages/Member/MakePayment";
 import PaymentHistory from "../pages/DashboardPages/Member/PaymentHistory";
 import Payment from "../pages/DashboardPages/Member/Payment/Payment";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

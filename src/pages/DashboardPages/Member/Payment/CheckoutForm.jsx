@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { CardElement } from "@stripe/react-stripe-js";
 import "./Payment.css";
 import { useStripe } from "@stripe/react-stripe-js";

@@ -65,19 +65,19 @@ const AdminHome = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex lg:flex-row items-center gap-6">
         {/* admin profile */}
         <div className="w-full lg:w-7/12">
           <div className="bg-white pb-6 shadow-md rounded shadow-gray-300">
             {/* image div */}
             <div className="relative h-fit">
               <img
-                className="h-[200px] w-full object-cover"
+                className="h-[180px] w-full object-cover"
                 src="https://images.pexels.com/photos/6438762/pexels-photo-6438762.jpeg"
                 alt=""
               />
               {/* <!-- Profile Image --> */}
-              <div className="absolute top-[120px] left-1/2 transform -translate-x-1/2">
+              <div className="absolute top-[105px] left-1/2 transform -translate-x-1/2">
                 <img
                   className="h-[150px] w-[150px] rounded-full border-4 border-white shadow-md"
                   referrerPolicy="no-referrer"
@@ -112,15 +112,14 @@ const AdminHome = () => {
             Apartments Stats
           </h1>
           {/* Apartments Stats */}
-          <div className="my-6 space-y-6">
+          <div className="mt-6 space-y-6">
             {/* available apartments */}
             <div className="place-items-stretch grid h-auto bg-gradient-to-r from-[#A3A3A3] to-[#D4D4D4] w-full justify-center items-center rounded gap-4 px-3 py-6">
               <div className="flex flex-col justify-start">
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.availablePercentage}% 
-
+                    {adminStats.availablePercentage}%
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
@@ -134,8 +133,7 @@ const AdminHome = () => {
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.agreementPercentage}% 
-                    
+                    {adminStats.agreementPercentage}%
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
