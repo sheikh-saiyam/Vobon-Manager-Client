@@ -85,9 +85,17 @@ const Payment = () => {
             </h1>
             <hr className="mt-4 w-11/12 mx-auto border shadow-sm" />
           </div>
-          <div className="mt-4 w-11/12 mx-auto  flex justify-between items-center gap-2 text-lg">
+          <div className="mt-4 w-11/12 mx-auto flex justify-between gap-2 text-lg">
             <h1 className="font-medium">Month You Want to Pay:</h1>
-            <span>{selectedMonth}</span>
+            <span>
+              {selectedMonth ? (
+                selectedMonth
+              ) : (
+                <span className="text-[8px] font-bold text-red-500">
+                  Select a month from make-payment page to confirm payment
+                </span>
+              )}
+            </span>
           </div>
           <div className="flex w-11/12 mx-auto mt-1 justify-between items-center gap-2 text-lg">
             <h1 className="font-medium">Original Rent Price:</h1>

@@ -63,6 +63,7 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
         confirmButtonColor: "#d33",
       });
     }
+
     // else {
     //   console.log("[PaymentMethod]--->", paymentMethod);
     // }
@@ -93,6 +94,7 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
       });
       console.log(confirmError);
     }
+
     // else {
     //   console.log("[paymentIntent]--->", paymentIntent);
     // }
@@ -127,7 +129,7 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
             html: `Your payment has been processed successfully! <br/> <strong>Transaction ID:</strong> ${paymentIntent.id}`,
             icon: "success",
             iconColor: "#4794ed",
-            confirmButtonText: "Awesome!",
+            confirmButtonText: `$${rentPrice} Paid`,
             confirmButtonColor: "#4794ed",
             backdrop: true,
           });
