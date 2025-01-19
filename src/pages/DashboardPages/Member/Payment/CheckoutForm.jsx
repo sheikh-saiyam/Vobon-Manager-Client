@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ rentPrice, selectedMonth }) => {
   const [clientSecret, setClientSecret] = useState("");
@@ -14,6 +15,7 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
   const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
 
   // Get PaymentIntent ----->
@@ -60,9 +62,10 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
         confirmButtonText: "OK",
         confirmButtonColor: "#d33",
       });
-    } else {
-      console.log("[PaymentMethod]--->", paymentMethod);
     }
+    // else {
+    //   console.log("[PaymentMethod]--->", paymentMethod);
+    // }
 
     // Confirm Stripe Card Payment ----->
     const { paymentIntent, error: confirmError } =
@@ -89,21 +92,58 @@ const CheckoutForm = ({ rentPrice, selectedMonth }) => {
         confirmButtonColor: "#d33",
       });
       console.log(confirmError);
-    } else {
-      console.log("[paymentIntent]--->", paymentIntent);
     }
+    // else {
+    //   console.log("[paymentIntent]--->", paymentIntent);
+    // }
 
-    // PaymentIntent Status Succeeded Show Success Toast --->
+    // PaymentIntent Status Succeeded Show Success Toast &
+    // save payment_information in db --->
     if (paymentIntent.status === "succeeded") {
-      Swal.fire({
-        title: "🎉 Rent Payment Successful!",
-        html: `Your payment has been processed successfully! <br/> <strong>Transaction ID:</strong> ${paymentIntent.id}`,
-        icon: "success",
-        iconColor:"#4794ed",
-        confirmButtonText: "Awesome!",
-        confirmButtonColor: "#4794ed",
-        backdrop: true,
-      });
+      // Get all payment_information --->
+      const payment_information = {
+        member_email: user.email,
+        member_name: user?.displayName,
+        payment_month: selectedMonth,
+        payment_date: new Date(),
+        payment_amount: rentPrice,
+        transaction_id: paymentIntent.id,
+      };
+
+      try {
+        // Save payment_information in db --->
+        const { data } = await axiosSecure.post(
+          "/save-payment-information",
+          payment_information
+        );
+
+        if (data.insertedId) {
+          // navigate to payment history page --->
+          navigate("/dashboard/payment-history");
+
+          // show success toast --->
+          Swal.fire({
+            title: "🎉 Rent Payment Successful!",
+            html: `Your payment has been processed successfully! <br/> <strong>Transaction ID:</strong> ${paymentIntent.id}`,
+            icon: "success",
+            iconColor: "#4794ed",
+            confirmButtonText: "Awesome!",
+            confirmButtonColor: "#4794ed",
+            backdrop: true,
+          });
+
+          // Clear selected month from local storage --->
+          localStorage.removeItem("selectedMonth");
+        }
+      } catch {
+        Swal.fire({
+          icon: "error",
+          title: "Error Caught",
+          text: "An unexpected error occurred. Please try again.",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#d33",
+        });
+      }
     }
   };
 
