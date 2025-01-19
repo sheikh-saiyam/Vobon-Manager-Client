@@ -31,7 +31,8 @@ const PaymentHistory = () => {
             <thead className="bg-primary text-white text-lg">
               <tr>
                 <th className="py-4">Payment Month</th>
-                <th className="py-4 px-8">Payment Amount</th>
+                <th className="py-4 px-8 text-base">Payment <br /> Amount</th>
+                <th className="py-4 px-8">Payment Date</th>
                 <th className="py-4 px-8">Payment Transaction ID</th>
               </tr>
             </thead>
@@ -39,6 +40,7 @@ const PaymentHistory = () => {
               <tr className="text-base">
                 <td className="py-4">January</td>
                 <td className="py-4 px-8">$150</td>
+                <td className="py-4 px-8">2025-01-17</td>
                 <td className="py-4 px-8">pi_3QgQUaHFQO7rYaGg0w7Vlfkt</td>
               </tr>
             </tbody>

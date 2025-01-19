@@ -157,7 +157,7 @@ const Payment = () => {
         {/* payment checkout form */}
         <div className="w-11/12 md:w-10/12 mx-auto mt-6">
           <Elements stripe={stripePromise}>
-            <CheckoutForm rentPrice={rentPrice} />
+            <CheckoutForm rentPrice={rentPrice} selectedMonth={selectedMonth} />
           </Elements>
         </div>
       </div>
