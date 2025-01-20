@@ -164,10 +164,10 @@ const Apartments = () => {
   return (
     <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
       {/* Search field container */}
-      <div className="flex justify-center gap-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
         <form
           onSubmit={handleSearchByRent}
-          className="flex gap-3 justify-center"
+          className="flex flex-col md:flex-row items-center gap-3 justify-center"
         >
           {/* Min Input */}
           <div>
@@ -197,7 +197,7 @@ const Apartments = () => {
           <div>
             <button
               type="submit"
-              className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg"
+              className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg flex justify-center mx-auto h-full"
             >
               Filter By Rent
             </button>
@@ -207,11 +207,10 @@ const Apartments = () => {
         <div>
           <button
             onClick={() => {
-              setMinRent(null);
-              setMaxRent(null);
-              window.location.reload();
+              setMinRent("");
+              setMaxRent("");
             }}
-            className="btn rounded bg-[#2e2e2e] hover:bg-black duration-300 text-white font-medium text-lg"
+            className="btn rounded bg-[#2e2e2e] hover:bg-black duration-300 text-white font-medium text-lg flex justify-center mx-auto"
           >
             Reset
           </button>
