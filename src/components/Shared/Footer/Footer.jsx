@@ -101,21 +101,18 @@ const Footer = () => {
           </div>
 
           {/* Subscribe */}
-          <div className="lg:w-4/12">
+          <div className="w-full lg:w-4/12">
             <h3 className="text-xl font-bold mb-4">Subscribe</h3>
             <p className="mb-4 text-white">
               Want to be notified about our services? Just sign up and
               we&apos;ll send you a notification by email.
             </p>
-            <div className="flex items-center border-2 border-white rounded-full overflow-hidden">
+            <div className="flex items-center border-2 border-white rounded-full">
               <input
                 type="email"
                 placeholder="Email Address"
-                className="bg-transparent text-white w-fit px-4 py-2 outline-none flex-grow placeholder-white font-semibold"
+                className="bg-transparent text-white w-git px-4 py-2 outline-none placeholder-white font-semibold"
               />
-              <button className="bg-primary btn rounded-none border-none py-2 px-4 text-xl  hover:bg-accent transition">
-                <IoMdSend size={25} color="#ffffff" />
-              </button>
             </div>
           </div>
         </div>
