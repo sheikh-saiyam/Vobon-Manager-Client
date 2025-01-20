@@ -24,6 +24,8 @@ const Apartments = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(6);
+  const [minRent, setMinRent] = useState(null);
+  const [maxRent, setMaxRent] = useState(null);
 
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -32,9 +34,11 @@ const Apartments = () => {
 
   // get all apartments data --->
   const { data: apartments = [], isLoading } = useQuery({
-    queryKey: ["apartments", currentPage],
+    queryKey: ["apartments", currentPage, minRent, maxRent],
     queryFn: async () => {
-      const { data } = await axios(`${api_url}/apartments?page=${currentPage}`);
+      const { data } = await axios(
+        `${api_url}/apartments?page=${currentPage}&min=${minRent}&max=${maxRent}`
+      );
       return data.apartments;
     },
     keepPreviousData: true,
@@ -133,10 +137,68 @@ const Apartments = () => {
     }
   };
 
+  // Function for search by rent price --->
+  const handleSearchByRent = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const minPrice = form.min.value;
+    const maxPrice = form.max.value;
+    // min & max price validation --->
+    if (minPrice > maxPrice) {
+      Swal.fire("Minimum rent cannot be greater than maximum rent.");
+      return;
+    }
+    if (minPrice < 150) {
+      Swal.fire("Minimum rent must be greater than 150.");
+      return;
+    }
+    if (maxPrice > 550) {
+      Swal.fire("Maximum rent must be less than 550.");
+      return;
+    }
+    setMinRent(minPrice);
+    setMaxRent(maxPrice);
+  };
+  console.log(minRent, maxRent);
   return (
     <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
+      {/* Search field container */}
+      <form onSubmit={handleSearchByRent} className="flex gap-3 justify-center">
+        {/* Min Input */}
+        <div>
+          <input
+            type="number"
+            name="min"
+            min={150}
+            placeholder="Enter Min Price"
+            className="w-full input input-bordered rounded"
+          />
+        </div>
+        {/* Max Input */}
+        <div>
+          <input
+            type="number"
+            name="max"
+            max={550}
+            placeholder="Enter Max Price"
+            className="w-full input input-bordered rounded"
+          />
+        </div>
+        {/* Search button */}
+        <div>
+          <button
+            type="submit"
+            className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg"
+          >
+            Filter By Rent
+          </button>
+        </div>
+        {/* Reset Button */}
+      </form>
+      {/* Search field container */}
+
       {/* main container */}
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
         {apartments.map((apartment, idx) => (
           <div
             key={idx}
