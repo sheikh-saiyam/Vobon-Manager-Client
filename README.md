@@ -6,8 +6,8 @@
 
 ## 🔗 [Github Server Repository **Vobon-Manager**](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-sheikh-saiyam)
 
-### **Admin Email:** project-admin@admin.com
-### **Admin Password:** Project-admin//password
+## **Admin Email:** project-admin@admin.com
+## **Admin Password:** Project-admin//password
 
 ## Key features :
 
@@ -40,5 +40,6 @@
 - **SweetAlert2 Popups**: Beautiful popups for alerts and confirmations.
 - **Swiper Integration**: Smooth carousels for banners or special offers.
 - **Fast Loading**: Efficient code and caching for better performance.
+
 
 
