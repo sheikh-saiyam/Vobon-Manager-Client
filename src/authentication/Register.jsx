@@ -178,7 +178,7 @@ const Register = () => {
               )}
               {/* button div */}
               <div className="form-control mt-4">
-                <button className="btn w-full text-lg font-bold text-white bg-primary">
+                <button className="btn w-full text-lg font-bold text-white bg-accent hover:bg-primary">
                   Register
                 </button>
               </div>
