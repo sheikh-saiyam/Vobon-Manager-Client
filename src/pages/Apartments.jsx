@@ -159,42 +159,64 @@ const Apartments = () => {
     setMinRent(minPrice);
     setMaxRent(maxPrice);
   };
+
   console.log(minRent, maxRent);
   return (
     <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
       {/* Search field container */}
-      <form onSubmit={handleSearchByRent} className="flex gap-3 justify-center">
-        {/* Min Input */}
-        <div>
-          <input
-            type="number"
-            name="min"
-            min={150}
-            placeholder="Enter Min Price"
-            className="w-full input input-bordered rounded"
-          />
-        </div>
-        {/* Max Input */}
-        <div>
-          <input
-            type="number"
-            name="max"
-            max={550}
-            placeholder="Enter Max Price"
-            className="w-full input input-bordered rounded"
-          />
-        </div>
-        {/* Search button */}
+      <div className="flex justify-center gap-4">
+        <form
+          onSubmit={handleSearchByRent}
+          className="flex gap-3 justify-center"
+        >
+          {/* Min Input */}
+          <div>
+            <input
+              type="number"
+              name="min"
+              min={150}
+              required
+              defaultValue={minRent}
+              placeholder="Enter Min Price"
+              className="w-full input input-bordered rounded"
+            />
+          </div>
+          {/* Max Input */}
+          <div>
+            <input
+              type="number"
+              name="max"
+              max={550}
+              required
+              defaultValue={maxRent}
+              placeholder="Enter Max Price"
+              className="w-full input input-bordered rounded"
+            />
+          </div>
+          {/* Search button */}
+          <div>
+            <button
+              type="submit"
+              className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg"
+            >
+              Filter By Rent
+            </button>
+          </div>
+        </form>
+        {/* Reset Button */}
         <div>
           <button
-            type="submit"
-            className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg"
+            onClick={() => {
+              setMinRent(null);
+              setMaxRent(null);
+              window.location.reload();
+            }}
+            className="btn rounded bg-[#2e2e2e] hover:bg-black duration-300 text-white font-medium text-lg"
           >
-            Filter By Rent
+            Reset
           </button>
         </div>
-        {/* Reset Button */}
-      </form>
+      </div>
       {/* Search field container */}
 
       {/* main container */}
