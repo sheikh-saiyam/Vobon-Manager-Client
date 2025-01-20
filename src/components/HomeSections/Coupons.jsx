@@ -53,7 +53,7 @@ const Coupons = () => {
               >
                 <button
                   onClick={() => handleCopy(coupon.coupon_code)}
-                  className="btn bg-accent text-white font-normal text-sm md:text-base btn-sm mt-2 hover:bg-primary hover:text-white border-transparent border hover:border-primary rounded"
+                  className="btn bg-accent text-white font-normal text-sm md:text-base btn-sm mt-2 hover:bg-primary hover:text-white border-transparent border hover:border-primary rounded h-full"
                 >
                   <BiSolidCoupon size={25} /> Get Coupon Code
                 </button>

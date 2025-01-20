@@ -21,10 +21,10 @@ const AboutTheBuilding = () => {
             commitment to sustainability and the future of urban living.
           </p>
           {/* about container */}
-          <div className="mt-6 grid grid-cols-4 md:grid-cols-5 gap-6 h-full">
+          <div className="mt-6 flex flex-col sm:grid grid-cols-4 md:grid-cols-5 gap-6 h-full">
             {/* Designed for Excellence */}
             <div className="bg-red-100/5 border-secondary border shadow shadow-secondary col-span-2 md:col-span-3 p-4 rounded-lg grid place-content-stretch">
-              <div className="flex items-center gap-2">
+              <div className=" flex-col sm:flex-row sm:items-center gap-2">
                 <div className="text-4xl mb-4">
                   <FaRegStar className="text-yellow-500" />
                 </div>
@@ -39,7 +39,7 @@ const AboutTheBuilding = () => {
             </div>
             {/* An Architectural Gem */}
             <div className="bg-red-100/5 border-secondary border shadow shadow-secondary col-span-2 md:col-span-2 p-4 rounded-lg grid place-content-stretch">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <div className="text-4xl mb-4">
                   <FaBuilding className="text-blue-500" />
                 </div>
@@ -54,7 +54,7 @@ const AboutTheBuilding = () => {
             </div>
             {/* State-of-the-Art Facilities */}
             <div className="bg-red-100/5 border-secondary border shadow shadow-secondary col-span-2 md:col-span-2 p-4 rounded-lg grid place-content-stretch">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <div className="text-4xl mb-4">
                   <FaCog className="text-gray-500" />
                 </div>
@@ -69,7 +69,7 @@ const AboutTheBuilding = () => {
             </div>
             {/* Sustainability at its Core */}
             <div className="bg-red-100/5 border-secondary border shadow shadow-secondary col-span-2 md:col-span-3 p-4 rounded-lg grid place-content-stretch">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <div className="text-4xl mb-4">
                   <FaLeaf className="text-green-500" />
                 </div>
