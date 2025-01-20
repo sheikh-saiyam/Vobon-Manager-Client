@@ -1,8 +1,11 @@
-# React + Vite
+# Vobon Manager: Building Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Vobon-Manager** is an innovative Building Management System (BMS) designed to streamline apartment bookings and rental payment processes. Catering to both users and administrators, the platform offers a seamless and efficient experience for managing building-related operations. It aims to simplify day-to-day management tasks while providing a user-friendly interface for residents and building staff alike.
 
-Currently, two official plugins are available:
+## 🔗 [Live Website Link Of **Vobon-Manager**](https://saiyam-assignment12.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 [Github Server Repository **Game-Chill**](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-sheikh-saiyam)
+
+### **Admin Email:** project-admin@admin.com
+### **Admin Password:** Project-admin//password
+
