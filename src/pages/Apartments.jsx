@@ -23,7 +23,7 @@ const Apartments = () => {
   });
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(6);
+  const [totalPages, setTotalPages] = useState(0);
   const [minRent, setMinRent] = useState(null);
   const [maxRent, setMaxRent] = useState(null);
 
@@ -32,19 +32,21 @@ const Apartments = () => {
   const axiosSecure = useAxiosSecure();
   const api_url = import.meta.env.VITE_API_URL;
 
-  // get all apartments data --->
+  // Get all apartments data --->
   const { data: apartments = [], isLoading } = useQuery({
     queryKey: ["apartments", currentPage, minRent, maxRent],
     queryFn: async () => {
       const { data } = await axios(
         `${api_url}/apartments?page=${currentPage}&min=${minRent}&max=${maxRent}`
       );
-      return data.apartments;
+      // For pagination --->
+      const totalApartments = data.totalApartments;
+      const calculatedTotalPages = Math.ceil(totalApartments / 6);
+      setTotalPages(calculatedTotalPages);
+      // Return all data --->
+      return data;
     },
     keepPreviousData: true,
-    onSuccess: (apartments) => {
-      setTotalPages(apartments.totalPages);
-    },
   });
 
   // Function for change page --->
@@ -160,7 +162,6 @@ const Apartments = () => {
     setMaxRent(maxPrice);
   };
 
-  console.log(minRent, maxRent);
   return (
     <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
       {/* Search field container */}
@@ -220,7 +221,7 @@ const Apartments = () => {
 
       {/* main container */}
       <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
-        {apartments.map((apartment, idx) => (
+        {apartments.apartments.map((apartment, idx) => (
           <div
             key={idx}
             className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden grid place-items-stretch"
