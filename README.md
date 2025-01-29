@@ -53,7 +53,7 @@ Whether you’re a resident looking for convenience or an admin managing buildin
 
 - 👤 **User Role:** Limited access to the user dashboard for browsing apartments and viewing announcements.
 - 🧑‍💼 **Member Role:** Full access to member dashboard, with the ability to manage payments, apply coupons, and view payment history.
-- ️👨🏻‍💻 **Admin Role:**️ Full control over the system, including managing users, members, apartments, announcements, agreements, and coupons.
+- ️👨🏻‍💻 **Admin Role:** Full control over the system, including managing users, members, apartments, announcements, agreements, and coupons.
 
 ## 🌟 Additional Features
 
