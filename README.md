@@ -215,3 +215,80 @@ Whether you’re a resident looking for convenience or an admin managing buildin
       - Admins can switch coupons availability between Available and Unavailable.
 
 ---
+
+## ⚙️ JSON Data Structure
+
+### Apartment Data
+
+```json
+{
+  "_id": "678a3bd548a654b2a0d520a9",
+  "apartmentImage": "https://apartment-j-1001-image.com",
+  "apartmentNumber": "J-1001",
+  "floorNumber": 10,
+  "blockName": "J",
+  "rent": 420,
+  "status": "available"
+}
+```
+
+### Agreement Data
+
+```json
+{
+  "_id": "678a5783ebcc43944b0fcb06",
+  "user_details": {
+    "email": "agreementuser@gmail.com",
+    "name": "Agreement User"
+  },
+  "apartment_id": "678a3bd548a654b2a0d520ab",
+  "apartmentNumber": "A-103",
+  "floorNumber": 1,
+  "blockName": "A",
+  "rent": 170,
+  "agreement_status": "checked",
+  "agreement_request_date": "2025-01-17T13:13:31.485Z",
+  "agreement_accept_date": "2025-01-17T17:39:20.000Z"
+}
+```
+
+### Announcement Data
+
+```json
+{
+"_id": "678b64a2b69e30a402b0f266",
+"title": "User Notice: Agreement Request Status",
+"description": "If you have requested an agreement, please wait your agreement request is still
+pending or has not been accepted by the owner.Once accepted, you'll gain access to your agreement,
+and your role will be updated to Member.Thank you for your patience!"
+}
+```
+
+### Coupon Data
+
+```json
+{
+"_id": "678765eb42e885021e1dcf62",
+"coupon_code": "VOBON10",
+"discount_Percentage": 10,
+"coupon_description": "Get 10% off your first apartment booking fee or rental payment made
+through Vobon Manager",
+"availability": "available"
+}
+```
+
+### Payment Data
+
+```json
+{
+  "_id": "678cabff5b4ac89f9f8662a4",
+  "member_email": "agreementuser@gmail.com",
+  "member_name": "Agreement User",
+  "payment_month": "January",
+  "payment_date": "2025-01-19T07:38:39.671Z",
+  "payment_amount": 119,
+  "transaction_id": "pi_3Qit5bHFQO7rYaGg1iNHguBl"
+}
+```
+
+---
