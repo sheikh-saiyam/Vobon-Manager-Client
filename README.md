@@ -57,11 +57,11 @@ Whether you’re a resident looking for convenience or an admin managing buildin
 
 ## 🌟 Additional Features
 
-- Role-based access control with **JWT**.
-- Responsive design for all devices.
-- Search apartments by rent range with advanced filtering.
-- Coupon management with dynamic discounts.
-- Real-time updates on agreement status.
+- `Role-based access control with **JWT**.`
+- `Responsive design for all devices.`
+- `Search apartments by rent range with advanced filtering.`
+- `Coupon management with dynamic discounts.`
+- `Real-time updates on agreement status.`
 
 ## 🛡️ Security
 
