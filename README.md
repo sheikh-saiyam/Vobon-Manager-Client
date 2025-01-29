@@ -292,3 +292,64 @@ through Vobon Manager",
 ```
 
 ---
+
+## 🌐 Tech Stack
+
+### **Frontend**:
+
+- Tailwind CSS for styling
+- React.js with React Router
+- Firebase Authentication
+
+### **Backend**:
+
+- Node.js with Express.js
+- MongoDB for data storage
+- JWT for secure sessions
+
+### **Hosting**:
+
+- **Client**: Netlify
+- **Server**: Vercel
+
+---
+
+## 📦 NPM Packages
+
+### Client
+
+```json
+  "dependencies": {
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.5.0",
+    "@tanstack/react-query": "^5.64.1",
+    "axios": "^1.7.9",
+    "firebase": "^11.1.0",
+    "localforage": "^1.10.0",
+    "match-sorter": "^8.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.5.1",
+    "react-icons": "^5.4.0",
+    "react-router-dom": "^7.1.1",
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.15.10",
+    "swiper": "^11.2.1"
+  }
+```
+
+### Server
+
+```json
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0",
+    "stripe": "^17.5.0"
+  }
+```
+
+---
