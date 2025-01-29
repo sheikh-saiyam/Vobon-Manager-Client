@@ -377,3 +377,70 @@ through Vobon Manager",
 ![Payment Section](https://i.ibb.co.com/f4B98ZY/Screenshot-2025-01-28-160508.png)
 
 ---
+
+## ⚙️ Installation & Setup
+
+### Client Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sheikh-saiyam/Vobon-Manager-Client
+   cd Vobon-Manager-Client
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up the environment variables in a `.env.local` file:
+
+   ```env
+   VITE_apiKey=your_firebase_apiKey
+   VITE_authDomain=your_firebase_authDomain
+   VITE_projectId=your_firebase_projectId
+   VITE_storageBucket=your_firebase_storageBucket
+   VITE_messagingSenderId=your_firebase_messagingSenderId
+   VITE_appId=your_firebase_appId
+
+   VITE_STRIPE_PUBLIC_KEY=your_stripe_Publishable_Key
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:5173/](http://localhost:5173/) in your browser.
+
+### Server Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sheikh-saiyam/Vobon-Manager-Server
+   cd Vobon-Manager-Server
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up the environment variables in a `.env` file:
+   ```env
+   DB_USER=your_db_user_name
+   DB_PASS=your_db_user_password
+   JWT_SECRET=jwt_secret_code
+   STRIPE_SECRET_KEY=your_stripe_Secret _Key
+   ```
+4. Run the development server:
+   ```bash
+   npm start
+   ```
+
+---
