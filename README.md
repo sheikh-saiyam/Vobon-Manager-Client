@@ -9,3 +9,16 @@ With a user-friendly interface, Vobon Manager offers tenants the ability to brow
 Whether you’re a resident looking for convenience or an admin managing building operations, **Vobon Manager** is your go-to solution for streamlined building management.
 
 ---
+
+## 🔗 Key Links:
+
+- [**Live Website Link**](https://saiyam-assignment12.netlify.app/)
+- [**Github Client Repository**](https://github.com/sheikh-saiyam/Vobon-Manager-Client)
+- [**Gtihub Server Repository**](https://github.com/sheikh-saiyam/Vobon-Manager-Server)
+
+## 🔑 Admin Login Credentials
+
+- **Email:** project-admin@admin.com
+- **Password:** Project-admin//password
+
+---
