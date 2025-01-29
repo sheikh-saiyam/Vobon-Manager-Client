@@ -18,8 +18,8 @@ Whether you’re a resident looking for convenience or an admin managing buildin
 
 ## 🔑 Admin Login Credentials
 
-- **Email:** project-admin@admin.com
-- **Password:** Project-admin//password
+- **Email:** `project-admin@admin.com`
+- **Password:** `Project-admin//password`
 
 ---
 
