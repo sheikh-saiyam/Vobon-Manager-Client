@@ -405,6 +405,7 @@ through Vobon Manager",
    VITE_messagingSenderId=your_firebase_messagingSenderId
    VITE_appId=your_firebase_appId
 
+   VITE_API_URL=your_server_api_link
    VITE_STRIPE_PUBLIC_KEY=your_stripe_Publishable_Key
    ```
 
