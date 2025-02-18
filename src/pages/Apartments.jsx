@@ -163,154 +163,158 @@ const Apartments = () => {
   };
 
   return (
-    <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
-      {/* Search field container */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-        <form
-          onSubmit={handleSearchByRent}
-          className="flex flex-col md:flex-row items-center gap-3 justify-center"
-        >
-          {/* Min Input */}
-          <div>
-            <input
-              type="number"
-              name="min"
-              min={150}
-              required
-              defaultValue={minRent}
-              placeholder="Enter Min Price"
-              className="w-full input input-bordered rounded"
-            />
-          </div>
-          {/* Max Input */}
-          <div>
-            <input
-              type="number"
-              name="max"
-              max={550}
-              required
-              defaultValue={maxRent}
-              placeholder="Enter Max Price"
-              className="w-full input input-bordered rounded"
-            />
-          </div>
-          {/* Search button */}
-          <div>
-            <button
-              type="submit"
-              className="btn rounded bg-accent hover:bg-primary duration-300 text-white font-medium text-lg flex justify-center mx-auto h-full"
-            >
-              Filter By Rent
-            </button>
-          </div>
-        </form>
-        {/* Reset Button */}
-        <div>
-          <button
-            onClick={() => {
-              setMinRent("");
-              setMaxRent("");
-            }}
-            className="btn rounded bg-[#2e2e2e] hover:bg-black duration-300 text-white font-medium text-lg flex justify-center mx-auto"
+    <div className="dark:bg-black">
+      <div className="py-14 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
+        {/* Search field container */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <form
+            onSubmit={handleSearchByRent}
+            className="flex flex-col md:flex-row items-center gap-3 justify-center"
           >
-            Reset
-          </button>
-        </div>
-      </div>
-      {/* Search field container */}
-
-      {/* main container */}
-      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
-        {apartments.apartments.map((apartment, idx) => (
-          <div
-            key={idx}
-            className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden grid place-items-stretch"
-          >
-            <img
-              src={apartment.apartmentImage}
-              alt="Apartment Image"
-              className="w-full h-[250px] object-cover"
-            />
-            <div className="p-4">
-              <div>
-                <h1 className="text-5xl tracking-widest font-bold text-text flex items-center">
-                  ${apartment.rent}{" "}
-                  <span className="text-xl tracking-wide mt-3 font-medium">
-                    /Rent
-                  </span>
-                </h1>
-              </div>
-              <div className="mt-3">
-                <h2 className="text-3xl font-semibold text-text">
-                  Apartment: {apartment.apartmentNumber}
-                </h2>
-                <div className="flex mt-4 gap-x-4 flex-wrap">
-                  <h2 className="text-xl font-medium text-text">
-                    Floor Number: {apartment.floorNumber}
-                  </h2>
-                  <h2 className="text-lg font-medium text-text">||</h2>
-                  <h2 className="text-lg font-medium text-text">
-                    Block Name: {apartment.blockName}
-                  </h2>
-                </div>
-              </div>
+            {/* Min Input */}
+            <div>
+              <input
+                type="number"
+                name="min"
+                min={150}
+                required
+                defaultValue={minRent}
+                placeholder="Enter Min Price"
+                className="w-full input input-bordered rounded"
+              />
+            </div>
+            {/* Max Input */}
+            <div>
+              <input
+                type="number"
+                name="max"
+                max={550}
+                required
+                defaultValue={maxRent}
+                placeholder="Enter Max Price"
+                className="w-full input input-bordered rounded"
+              />
+            </div>
+            {/* Search button */}
+            <div>
               <button
-                onClick={() => handleAgreement(apartment)}
-                disabled={apartment.status === "rented"}
-                className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300 disabled:text-[#606060]"
+                type="submit"
+                className="btn rounded bg-accent dark:border-none hover:bg-primary duration-300 text-white font-medium text-lg flex justify-center mx-auto h-full"
               >
-                {apartment.status === "available" ? (
-                  <FaHandshakeSimple size={25} />
-                ) : (
-                  <MdBlockFlipped size={23} />
-                )}
-                {apartment.status === "available" ? "Agreement" : "Rented"}
+                Filter By Rent
               </button>
             </div>
-          </div>
-        ))}
-      </div>
-      {/* main container */}
-
-      {/* Pagination controller */}
-      <div>
-        <div className="mt-4 flex flex-wrap justify-center gap-3">
-          {/* prev button */}
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="btn bg-white text-primary border-2 border-primary rounded"
-          >
-            <MdOutlineSkipPrevious size={40} />
-          </button>
-
-          {/* Display page numbers & page change button */}
-          {Array.from({ length: totalPages }, (_, index) => (
+          </form>
+          {/* Reset Button */}
+          <div>
             <button
-              key={index}
-              onClick={() => handlePageChange(index + 1)}
-              className={`btn px-6 rounded text-lg ${
-                currentPage === index + 1
-                  ? "bg-accent border-2 border-accent text-white"
-                  : "bg-white text-accent border-2 border-accent hover:bg-accent hover:text-white hover:border-accent duration-300"
-              }`}
+              onClick={() => {
+                setMinRent("");
+                setMaxRent("");
+              }}
+              className="btn rounded bg-[#2e2e2e] dark:hover:bg-white dark:hover:text-black dark:border-none hover:bg-black duration-300 text-white font-medium text-lg flex justify-center mx-auto"
             >
-              {index + 1}
+              Reset
             </button>
-          ))}
-          {/* Display page numbers & page change button */}
-
-          {/* next button */}
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="btn bg-white text-primary border-2 border-primary rounded  hover:bg-primary hover:text-white hover:border-primary duration-300"
-          >
-            <MdOutlineSkipNext size={40} />
-          </button>
+          </div>
         </div>
+        {/* Search field container */}
+
+        {/* main container */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
+          {apartments.apartments.map((apartment, idx) => (
+            <div
+              key={idx}
+              className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden grid place-items-stretch dark:bg-[#1b1b1b]"
+            >
+              <img
+                src={apartment.apartmentImage}
+                alt="Apartment Image"
+                className="w-full h-[250px] object-cover"
+              />
+              <div className="p-4">
+                <div>
+                  <h1 className="text-5xl tracking-widest font-bold text-text dark:text-white flex items-center">
+                    ${apartment.rent}{" "}
+                    <span className="text-xl tracking-wide mt-3 font-medium">
+                      /Rent
+                    </span>
+                  </h1>
+                </div>
+                <div className="mt-3">
+                  <h2 className="text-3xl font-semibold text-text dark:text-white">
+                    Apartment: {apartment.apartmentNumber}
+                  </h2>
+                  <div className="flex mt-4 gap-x-4 flex-wrap">
+                    <h2 className="text-xl font-medium text-text dark:text-white">
+                      Floor Number: {apartment.floorNumber}
+                    </h2>
+                    <h2 className="text-lg font-medium text-text dark:text-white">
+                      ||
+                    </h2>
+                    <h2 className="text-lg font-medium text-text dark:text-white">
+                      Block Name: {apartment.blockName}
+                    </h2>
+                  </div>
+                </div>
+                <button
+                  onClick={() => handleAgreement(apartment)}
+                  disabled={apartment.status === "rented"}
+                  className="mt-4 btn rounded bg-accent text-white text-lg font-semibold w-2/3 hover:bg-primary border-none duration-300 disabled:text-[#606060]"
+                >
+                  {apartment.status === "available" ? (
+                    <FaHandshakeSimple size={25} />
+                  ) : (
+                    <MdBlockFlipped size={23} />
+                  )}
+                  {apartment.status === "available" ? "Agreement" : "Rented"}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* main container */}
+
+        {/* Pagination controller */}
+        <div>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            {/* prev button */}
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="btn bg-white text-primary border-2 border-primary rounded  hover:bg-primary hover:text-white hover:border-primary duration-300 dark:text-white dark:bg-[#1b1b1b] dark:border-none dark:hover:bg-white dark:hover:text-black"
+            >
+              <MdOutlineSkipPrevious size={40} />
+            </button>
+
+            {/* Display page numbers & page change button */}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`btn px-6 rounded text-lg ${
+                  currentPage === index + 1
+                    ? "bg-accent border-2 border-accent text-white dark:border-none"
+                    : "bg-white text-accent border-2 border-accent hover:bg-accent hover:text-white hover:border-accent duration-300 dark:border-none"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            {/* Display page numbers & page change button */}
+
+            {/* next button */}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="btn bg-white text-primary border-2 border-primary rounded  hover:bg-primary hover:text-white hover:border-primary duration-300 dark:text-white dark:bg-[#1b1b1b] dark:border-none dark:hover:bg-white dark:hover:text-black"
+            >
+              <MdOutlineSkipNext size={40} />
+            </button>
+          </div>
+        </div>
+        {/* Pagination controller */}
       </div>
-      {/* Pagination controller */}
     </div>
   );
 };
