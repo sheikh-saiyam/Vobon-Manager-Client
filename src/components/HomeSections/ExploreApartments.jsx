@@ -16,8 +16,10 @@ const ExploreApartments = () => {
 
   return (
     <div>
-      <h3 className="text-lg text-primary">--- Explore Our Apartments ---</h3>
-      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold">
+      <h3 className="text-lg text-primary dark:font-bold">
+        --- Explore Our Apartments ---
+      </h3>
+      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white">
         Apartments Tailored to Your Needs
       </h1>
 
@@ -25,7 +27,7 @@ const ExploreApartments = () => {
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {apartments.map((apartment, idx) => (
           <Link to={"/apartments"} key={idx}>
-            <div className="w-full mx-auto bg-white shadow overflow-hidden grid place-items-stretch hover:scale-105 duration-150">
+            <div className="w-full mx-auto bg-white dark:bg-[#1b1b1b] shadow overflow-hidden grid place-items-stretch hover:scale-105 duration-150">
               <img
                 src={apartment.apartmentImage}
                 alt="Apartment Image"
@@ -33,7 +35,7 @@ const ExploreApartments = () => {
               />
               <div className="p-4">
                 <div>
-                  <h1 className="text-4xl md:text-5xl tracking-widest font-bold text-text flex items-center">
+                  <h1 className="text-4xl md:text-5xl tracking-widest font-bold text-text flex items-center dark:text-white">
                     ${apartment.rent}{" "}
                     <span className="text-lg lg:text-xl tracking-wide mt-3 font-medium">
                       /Rent
@@ -41,7 +43,7 @@ const ExploreApartments = () => {
                   </h1>
                 </div>
                 <div className="mt-3">
-                  <h2 className="text-xl md:text-2xl font-semibold text-text">
+                  <h2 className="text-xl md:text-2xl font-semibold text-text dark:text-white">
                     Apartment: {apartment.apartmentNumber}
                   </h2>
                 </div>
