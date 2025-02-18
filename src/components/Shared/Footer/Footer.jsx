@@ -4,10 +4,9 @@ import {
   FaMapMarkerAlt,
   FaYoutube,
 } from "react-icons/fa";
-import { IoMdSend } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import logo from "../../../assets/Logo.png";
+import logo from "../../../assets/vobon_logo.png";
 
 const Footer = () => {
   return (

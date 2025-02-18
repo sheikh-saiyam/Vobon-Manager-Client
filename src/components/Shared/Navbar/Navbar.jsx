@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 bg-[#f2fbff] border-accent border-b-2">
+    <div className="sticky top-0 z-50 bg-[#f2fbff] border-primary border-b-2">
       <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
         <div>
           <Link>

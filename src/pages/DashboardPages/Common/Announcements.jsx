@@ -49,7 +49,7 @@ const Announcements = () => {
                 </h1>
               </div>
               <div className="mt-3">
-                <p className="text-base font-medium tracking-wider text-text">
+                <p className="text-base font-medium tracking-wider text-text whitespace-pre-line">
                   {announcement.description}
                 </p>
               </div>

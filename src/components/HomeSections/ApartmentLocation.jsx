@@ -21,7 +21,7 @@ const ApartmentLocation = () => {
         <div className="mt-8 flex flex-row flex-wrap gap-x-3 lg:flex lg:flex-col gap-y-6">
           <div>
             <div className="w-full text-gray-700">
-              <h3 className="text-xl font-semibold text-indigo-600 mb-4">
+              <h3 className="text-xl font-semibold text-primary mb-4">
                 How to Get Here
               </h3>
               <h1 className="mb-3 flex gap-2">
@@ -36,7 +36,7 @@ const ApartmentLocation = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-indigo-600 mb-4">
+            <h3 className="text-xl font-semibold text-primary mb-4">
               Nearby Attractions
             </h3>
             <ul className="list-disc space-y-2 pl-5 text-gray-700">

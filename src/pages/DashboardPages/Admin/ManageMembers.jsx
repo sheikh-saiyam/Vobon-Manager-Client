@@ -57,7 +57,7 @@ const ManageMembers = () => {
       />
 
       {/* main container */}
-      <div className="bg-white mt-12 w-full md:w-11/12 lg:w-10/12 mx-auto p-4 md:p-6 lg:p-8">
+      <div className="bg-white mt-12 w-full md:w-[93.5%] mx-auto p-4 md:p-6 lg:p-8">
         {/* text div */}
         <div>
           <h1 className="text-xl md:text-2xl lg:text-3xl text-text font-semibold tracking-wide">
