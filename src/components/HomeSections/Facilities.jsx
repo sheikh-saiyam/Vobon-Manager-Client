@@ -26,8 +26,8 @@ const facilities = [
     description:
       "Secure and spacious parking area with round-the-clock monitoring to ensure the complete safety of your vehicles.",
   },
-    
-                       { 
+
+  {
     icon: <FaDumbbell size={70} />,
     title: "Gymnasium",
     description:
@@ -38,8 +38,8 @@ const facilities = [
     title: "24/7 Security",
     description:
       "Our building is safeguarded by advanced CCTV surveillance and dedicated security staff ensuring safety at all times.",
-                               },
-               {
+  },
+  {
     icon: <FaBuilding size={70} />,
     title: "Community Hall",
     description:
