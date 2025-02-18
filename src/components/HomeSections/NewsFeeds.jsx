@@ -34,28 +34,6 @@ const NewsFeeds = () => {
       author: "Admin",
       tags: ["Apartment Living", "Amenities", "Lifestyle"],
     },
-    // {
-    //   id: 4,
-    //   title: "How to Save Money on Your Monthly Rent",
-    //   image:
-    //     "https://i.pinimg.com/originals/05/08/0e/05080e9f303b26bb4917f8f30360be87.jpg",
-    //   date: "2025-02-05",
-    //   content:
-    //     "Looking to save on your rent? Check out these practical tips to reduce your monthly rental expenses without compromising your lifestyle...",
-    //   author: "Finance Team",
-    //   tags: ["Finance", "Rent Saving", "Tips"],
-    // },
-    // {
-    //   id: 5,
-    //   title: "New Apartment Listings: February 2025 Edition",
-    //   image:
-    //     "https://i.pinimg.com/originals/05/08/0e/05080e9f303b26bb4917f8f30360be87.jpg",
-    //   date: "2025-02-01",
-    //   content:
-    //     "Check out the latest apartments available for rent this month. Explore listings, pricing, and more in our February 2025 edition...",
-    //   author: "Listings Team",
-    //   tags: ["New Listings", "Rentals", "Monthly Update"],
-    // },
   ];
 
   return (
