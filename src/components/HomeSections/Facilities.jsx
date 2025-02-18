@@ -51,8 +51,10 @@ const Facilities = () => {
   return (
     <div>
       {/* Section Header */}
-      <h3 className="text-lg text-primary">--- Our Facilities ---</h3>
-      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold">
+      <h3 className="text-lg text-primary dark:font-bold">
+        --- Our Facilities ---
+      </h3>
+      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white">
         Discover The Top-Notch Facilities We Provides
       </h1>
       <div className="mt-6">
@@ -60,13 +62,15 @@ const Facilities = () => {
           {facilities.map((facility, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded shadow-md hover:shadow-lg transition-shadow duration-500 flex flex-col items-center border"
+              className="bg-white dark:bg-[#1b1b1b] dark:border-none p-6 rounded shadow-md hover:shadow-lg transition-shadow duration-500 flex flex-col items-center border"
             >
-              <div className="mb-2 text-[#444]">{facility.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              <div className="mb-2 text-[#444] dark:text-white">
+                {facility.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-gray-700  dark:text-white mb-2">
                 {facility.title}
               </h3>
-              <p className="text-gray-500 text-sm text-center">
+              <p className="text-gray-500 dark:text-white text-sm text-center">
                 {facility.description}
               </p>
             </div>

@@ -20,8 +20,10 @@ const Coupons = () => {
 
   return (
     <div>
-      <h3 className="text-lg text-primary">--- Exclusive Coupons ---</h3>
-      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold">
+      <h3 className="text-lg text-primary dark:font-bold">
+        --- Exclusive Coupons ---
+      </h3>
+      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white">
         Explore Top Coupons & Maximize Your Savings!
       </h1>
 
@@ -34,7 +36,7 @@ const Coupons = () => {
           >
             {/* Left Section */}
             <div className="bg-accent text-white text-center px-6 h-full relative flex items-center">
-              <div className="absolute inset-y-[%] left-[-20px] bg-white w-10 h-10 rounded-full border border-primary"></div>
+              <div className="absolute inset-y-[%] left-[-20px] bg-white dark:bg-black w-10 h-10 rounded-full border border-primary"></div>
               <h1 className="text-4xl font-bold ml-2">
                 {coupon.discount_Percentage}%
               </h1>
@@ -43,7 +45,7 @@ const Coupons = () => {
             {/* Right Section */}
             <div className="flex-grow border-2 border-l-0 border-dashed px-4 py-2 relative">
               <div className="flex justify-between items-center">
-                <h2 className="md:text-lg font-medium text-gray-800">
+                <h2 className="md:text-lg font-medium text-gray-800 dark:text-white">
                   {coupon.coupon_description}
                 </h2>
               </div>
