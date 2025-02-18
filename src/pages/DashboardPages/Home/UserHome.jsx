@@ -22,6 +22,7 @@ const UserHome = () => {
     },
   });
 
+  // Get all agreement data -->
   const {
     apartmentNumber,
     floorNumber,
