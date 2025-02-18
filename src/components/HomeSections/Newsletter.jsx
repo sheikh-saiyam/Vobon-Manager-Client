@@ -1,6 +1,6 @@
 const Newsletter = () => {
   return (
-    <section className="w-full rounded p-[20px] border">
+    <section className="w-full rounded p-[20px] border dark:border-[#ffffff] dark:border-2">
       <div className="flex lg:flex-row flex-col items-center justify-between gap-[20px]">
         <div className="w-full sm:w-[80%] lg:w-[50%]">
           <img
@@ -11,11 +11,11 @@ const Newsletter = () => {
         </div>
 
         <div className="w-full lg:w-[45%]">
-          <b className="text-[1.3rem] sm:text-[2rem]">Get our weekly</b>
+          <b className="text-[1.3rem] sm:text-[2rem] dark:text-white">Get our weekly</b>
           <h1 className="text-[2.1rem] sm:text-[3.2rem] font-[800] uppercase text-accent leading-[50px]">
             newsletter
           </h1>
-          <p className="text-[1rem] sm:text-[1.3rem] mt-5 sm:mt-8">
+          <p className="text-[1rem] sm:text-[1.3rem] mt-5 sm:mt-8 dark:text-white">
             <b>Subscribe to our newsletter</b> for the latest apartments
             listings, rental offer, and exclusive coupons delivered straight to
             your inbox!

@@ -39,8 +39,10 @@ const NewsFeeds = () => {
   return (
     <div>
       {/* Section Header */}
-      <h3 className="text-lg text-primary">--- News Feeds ---</h3>
-      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold">
+      <h3 className="text-lg text-primary dark:font-bold">
+        --- News Feeds ---
+      </h3>
+      <h1 className="text-text my-2 text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white">
         Stay Updated with Vobon Manager
       </h1>
       {/* News Container */}
@@ -48,7 +50,7 @@ const NewsFeeds = () => {
         {news.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded shadow hover:shadow-lg transition grid place-content-stretch cursor-pointer"
+            className="bg-white dark:bg-[#1b1b1b] rounded shadow hover:shadow-lg transition grid place-content-stretch cursor-pointer"
           >
             <img
               src={item.image}
@@ -56,18 +58,20 @@ const NewsFeeds = () => {
               className="w-full h-52 object-cover"
             />
             <div className="p-6">
-              <p className="text-base text-gray-500 mb-2 font-semibold">
+              <p className="text-base text-gray-500 dark:text-gray-300 mb-2 font-semibold">
                 {item.date} | By {item.author}
               </p>
-              <h3 className="text-xl font-semibold mb-2 tracking-widest">
+              <h3 className="text-xl dark:text-white font-semibold mb-2 tracking-widest">
                 {item.title}
               </h3>
-              <p className="text-gray-600 tracking-widest">{item.content}</p>
+              <p className="text-gray-600 dark:text-[#ececec] tracking-widest">
+                {item.content}
+              </p>
               <div className="flex flex-wrap gap-2 mt-4">
                 {item.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="text-sm bg-blue-100/80 text-primary font-semibold px-3 py-1 rounded-full"
+                    className="text-sm bg-blue-100/80 dark:bg-white text-primary font-semibold px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
