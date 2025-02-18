@@ -6,6 +6,7 @@ import Coupons from "../components/HomeSections/Coupons";
 import ExploreApartments from "../components/HomeSections/ExploreApartments";
 import Newsletter from "../components/HomeSections/Newsletter";
 import NewsFeeds from "../components/HomeSections/NewsFeeds";
+import Facilities from "../components/HomeSections/Facilities";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -28,6 +29,9 @@ const HomeLayout = () => {
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <Coupons></Coupons>
+      </div>
+      <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
+        <Facilities />
       </div>
       <div className="pb-20 w-10/12 mx-auto max-w-screen-2xl">
         <NewsFeeds />
