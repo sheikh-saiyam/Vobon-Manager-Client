@@ -6,6 +6,7 @@ import MobileNavbar from "./MobileNavbar";
 import { MdLogin, MdOutlineSpaceDashboard } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
 import { SlLogout } from "react-icons/sl";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, loading, logOut } = useAuth();
@@ -125,6 +126,8 @@ const Navbar = () => {
               </div>
             )}
           </div>
+          {/* Theme Controller */}
+          <ThemeToggle />
         </div>
         {/* private routes & Conditional login btn & user dropdown with logout */}
 
