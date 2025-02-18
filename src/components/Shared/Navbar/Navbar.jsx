@@ -15,12 +15,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 bg-[#f2fbff] border-primary border-b-2">
+    <div className="sticky top-0 z-50 bg-[#f2fbff] dark:bg-[#1b1b1b] border-primary border-b-2 dark:border-white">
       <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
         <div>
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed"
+              className="w-28 h-24 border-l border-dashed dark:bg-white dark:p-2 dark:rounded"
               src={logo}
               alt="Vobon Manager"
             />
@@ -34,7 +34,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                  : "text-base font-semibold hover:text-primary hover:underline"
+                  : "text-base font-semibold hover:text-primary hover:underline dark:text-white"
               }
             >
               Home
@@ -44,7 +44,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                  : "text-base font-semibold hover:text-primary hover:underline"
+                  : "text-base font-semibold hover:text-primary hover:underline dark:text-white"
               }
             >
               All Apartments
