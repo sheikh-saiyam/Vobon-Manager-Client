@@ -43,7 +43,7 @@ const Coupons = () => {
             </div>
 
             {/* Right Section */}
-            <div className="flex-grow border-2 border-l-0 border-dashed px-4 py-2 relative">
+            <div className="flex-grow border-2 border-l-0 border-dashed px-4 py-2 relative dark:border-[#383838] dark:bg-[#1b1b1b]">
               <div className="flex justify-between items-center">
                 <h2 className="md:text-lg font-medium text-gray-800 dark:text-white">
                   {coupon.coupon_description}

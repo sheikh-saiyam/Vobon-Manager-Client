@@ -1,7 +1,4 @@
-import { FaBookmark, FaCarSide } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosArrowDropdown } from "react-icons/io";
-import { IoAddCircle } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
@@ -18,7 +15,7 @@ const MobileNavbar = ({
       <div>
         <label
           tabIndex={0}
-          className="btn bg-primary text-white  font-bold rounded duration-500"
+          className="btn bg-primary dark:border-none text-white  font-bold rounded duration-500"
           onClick={() =>
             isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true)
           }
