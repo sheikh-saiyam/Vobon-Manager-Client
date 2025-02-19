@@ -134,20 +134,14 @@ const Navbar = () => {
         {/* private routes & Conditional login btn & user dropdown with logout */}
 
         {/* Navbar for mobile (md and below) */}
-        <div className="flex gap-4 items-center">
-          <MobileNavbar
-            user={user}
-            logOut={logOut}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            isOpenMenu={isOpenMenu}
-            setIsOpenMenu={setIsOpenMenu}
-          />
-          {/* Theme Controller */}
-          <div className="md:hidden flex">
-            <ThemeToggle />
-          </div>
-        </div>
+        <MobileNavbar
+          user={user}
+          logOut={logOut}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          isOpenMenu={isOpenMenu}
+          setIsOpenMenu={setIsOpenMenu}
+        />
         {/* Navbar for mobile (md and below) */}
       </div>
     </div>

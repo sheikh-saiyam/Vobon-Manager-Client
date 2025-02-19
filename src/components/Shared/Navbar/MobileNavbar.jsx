@@ -1,6 +1,7 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const MobileNavbar = ({
   user,
@@ -11,7 +12,7 @@ const MobileNavbar = ({
   setIsOpenMenu,
 }) => {
   return (
-    <div className="dropdown dropdown-end md:hidden">
+    <div className="dropdown dropdown-end md:hidden flex items-center gap-4">
       <div>
         <label
           tabIndex={0}
@@ -106,6 +107,10 @@ const MobileNavbar = ({
             </NavLink>
           )}
         </ul>
+      </div>
+      {/* Theme Controller */}
+      <div className="md:hidden flex">
+        <ThemeToggle />
       </div>
     </div>
   );
