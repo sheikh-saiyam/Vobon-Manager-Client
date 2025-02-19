@@ -58,7 +58,7 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn flex items-center bg-white shadow-sm shadow-secondary border-none hover:bg-accent text-accent duration-300 hover:text-white rounded-full avatar"
+                  className="btn flex items-center bg-white shadow-sm shadow-secondary border-none hover:bg-accent text-accent duration-300 hover:text-white rounded-full avatar dark:shadow-none"
                 >
                   <div>
                     <span>

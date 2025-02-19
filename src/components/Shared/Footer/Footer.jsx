@@ -10,7 +10,7 @@ import logo from "../../../assets/vobon_logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary">
+    <footer className="bg-primary dark:bg-[#1b1b1b]">
       <div className="text-white pt-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl">
         <div className="mb-12">
           <div className="text-center">
