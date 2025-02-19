@@ -12,7 +12,7 @@ Whether you’re a resident looking for convenience or an admin managing buildin
 
 ## 🔗 Key Links:
 
-- [**Live Website Link**](https://saiyam-assignment12.netlify.app/)
+- [**Live Website Link**](https://vobon-manager.netlify.app/)
 - [**Github Client Repository**](https://github.com/sheikh-saiyam/Vobon-Manager-Client)
 - [**Gtihub Server Repository**](https://github.com/sheikh-saiyam/Vobon-Manager-Server)
 
