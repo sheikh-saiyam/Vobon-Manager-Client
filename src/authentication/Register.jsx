@@ -94,11 +94,11 @@ const Register = () => {
 
   return (
     <div>
-      <div className="bg-base-200">
+      <div className="bg-base-200 dark:bg-black">
         <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-12 flex flex-col-reverse md:flex md:flex-row-reverse">
-          <div className="bg-white py-12 px-8 md:w-7/12">
+          <div className="bg-white dark:bg-[#1b1b1b] py-12 px-8 md:w-7/12">
             <div className="mb-4">
-              <h1 className="flex items-center gap-2 text-3xl font-bold">
+              <h1 className="flex items-center gap-2 text-3xl font-bold dark:text-white">
                 <LuLogIn />
                 Register Page
               </h1>
@@ -110,7 +110,7 @@ const Register = () => {
               {/* name & photo */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
                 <div className="form-control">
-                  <label className="label px-0">
+                  <label className="label px-0 dark:text-white">
                     <span className="font-semibold">Name</span>
                   </label>
                   <input
@@ -122,7 +122,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label px-0">
+                  <label className="label px-0 dark:text-white">
                     <span className="font-semibold">Photo Url</span>
                   </label>
                   <input
@@ -137,7 +137,7 @@ const Register = () => {
               {/* name & photo */}
               {/* email & password */}
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Email</span>
                 </label>
                 <input
@@ -149,7 +149,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Password</span>
                 </label>
                 <div className="relative">
@@ -178,7 +178,7 @@ const Register = () => {
               )}
               {/* button div */}
               <div className="form-control mt-4">
-                <button className="btn w-full text-lg font-bold text-white bg-accent hover:bg-primary">
+                <button className="btn w-full text-lg font-bold text-white bg-accent hover:bg-primary dark:border-none">
                   Register
                 </button>
               </div>
@@ -187,12 +187,12 @@ const Register = () => {
             {/* register navigate */}
             <div className="text-text space-y-2 md:space-y-6 mt-6">
               <div className="w-full flex flex-wrap gap-2 items-center justify-center">
-                <h3 className="font-medium text-base">
+                <h3 className="font-medium text-base dark:text-white">
                   Already have an account
                 </h3>
                 <Link
                   to={"/login"}
-                  className="font-semibold underline underline-offset-2 hover:text-primary duration-200"
+                  className="font-semibold underline underline-offset-2 hover:text-primary duration-200 dark:text-primary"
                 >
                   Login
                 </Link>

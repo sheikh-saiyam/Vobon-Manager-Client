@@ -56,11 +56,11 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-background">
+    <div className="bg-background dark:bg-black">
       <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-7 flex flex-col-reverse md:flex md:flex-row">
-        <div className="bg-white py-7 px-8 md:w-2/3 border-2 border-accent border-r-0">
+        <div className="bg-white dark:bg-[#1b1b1b] py-7 px-8 md:w-2/3 border-2 border-accent border-r-0 dark:border-none">
           <div className="mb-4">
-            <h1 className="flex items-center gap-2 text-3xl font-bold text-text">
+            <h1 className="flex items-center gap-2 text-3xl font-bold text-text dark:text-white">
               <LuLogIn />
               Login To Start!
             </h1>
@@ -71,7 +71,7 @@ const Login = () => {
           <form onSubmit={handleLogin} className="card-body p-0 gap-0">
             <div className="form-control">
               <label className="label px-0">
-                <span className="font-semibold">Email</span>
+                <span className="font-semibold dark:text-white">Email</span>
               </label>
               <input
                 type="email"
@@ -83,7 +83,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-2">
               <label className="label px-0">
-                <span className="font-semibold">Password</span>
+                <span className="font-semibold dark:text-white">Password</span>
               </label>
               <div className="relative">
                 <input
@@ -109,7 +109,7 @@ const Login = () => {
               </label>
             )}
             <div className="form-control mt-6">
-              <button className="btn w-full text-lg font-bold text-white bg-accent hover:bg-primary">
+              <button className="btn w-full text-lg font-bold text-white bg-accent hover:bg-primary dark:border-none">
                 Login
               </button>
             </div>
@@ -117,12 +117,12 @@ const Login = () => {
           {/* register navigate */}
           <div className="text-text space-y-2 md:space-y-6 mt-6">
             <div className="w-full flex flex-wrap gap-2 items-center justify-center">
-              <h3 className="font-medium text-base">
+              <h3 className="font-medium text-base dark:text-white">
                 Don&apos;t have an account
               </h3>
               <Link
                 to={"/register"}
-                className="font-semibold underline underline-offset-2 hover:text-primary duration-200"
+                className="font-semibold underline underline-offset-2 hover:text-primary duration-200 dark:text-primary"
               >
                 Register
               </Link>

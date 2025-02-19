@@ -47,12 +47,12 @@ const SocialLogin = ({ setError }) => {
       <div>
         <button
           onClick={handleGoogleLogin}
-          className="btn bg-yellow-400 border-none w-full rounded-full flex gap-3 items-center text-lg text-white font-semibold hover:bg-yellow-500 duration-300"
+          className="btn bg-yellow-400 dark:bg-yellow-500 dark:hover:bg-yellow-600 border-none w-full rounded-full flex gap-3 items-center text-lg text-white font-semibold hover:bg-yellow-500 duration-300"
         >
           <FaGoogle className="text-xl" /> Log in With Google
         </button>
       </div>
-      <div className="divider font-semibold">
+      <div className="divider font-semibold dark:text-white">
         Or {location.pathname === "/login" ? "Login" : "Register"} with Email &
         Password
       </div>

@@ -118,7 +118,7 @@ const Navbar = () => {
               <div>
                 <NavLink
                   to={"/login"}
-                  className="btn rounded bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary border-2 border-transparent duration-300 tracking-wide text-lg font-semibold flex items-center"
+                  className="btn rounded bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary border-2 border-transparent duration-300 tracking-wide text-lg font-semibold flex items-center dark:hover:bg-white dark:hover:text-primary dark:border-none"
                 >
                   <MdLogin />
                   Login
