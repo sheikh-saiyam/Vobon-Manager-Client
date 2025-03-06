@@ -18,6 +18,7 @@ import MakePayment from "../pages/DashboardPages/Member/MakePayment";
 import PaymentHistory from "../pages/DashboardPages/Member/PaymentHistory";
 import Payment from "../pages/DashboardPages/Member/Payment/Payment";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import NewsAndBlogs from "../pages/NewsAndBlogs";
 
 const router = createBrowserRouter([
   // Main Layout Routes ----->
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/apartments",
         element: <Apartments></Apartments>,
+      },
+      {
+        path: "/news-and-blogs",
+        element: <NewsAndBlogs />,
       },
       // Authentication routes --->
       {

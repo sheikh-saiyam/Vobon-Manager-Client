@@ -49,6 +49,16 @@ const Navbar = () => {
             >
               All Apartments
             </NavLink>
+            <NavLink
+              to={"/news-and-blogs"}
+              className={({ isActive }) =>
+                isActive
+                  ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
+                  : "text-base font-semibold hover:text-primary hover:underline dark:text-white"
+              }
+            >
+              News & Blogs
+            </NavLink>
           </ul>
 
           {/* private routes & Conditional login btn & user dropdown with logout */}
