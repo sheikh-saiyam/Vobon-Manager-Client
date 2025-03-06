@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Login = () => {
   useEffect(() => {
@@ -56,11 +57,18 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-background dark:bg-black">
-      <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-7 flex flex-col-reverse md:flex md:flex-row">
-        <div className="bg-white dark:bg-[#1b1b1b] py-7 px-8 md:w-2/3 border-2 border-accent border-r-0 dark:border-none">
+    <div className="bg-base-200 dark:bg-black">
+      <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-7 flex flex-col-reverse md:flex md:flex-row justify-center items-center h-screen">
+        <div className="bg-white border-2 dark:bg-[#1b1b1b] py-7 px-8 w-full md:w-10/12 lg:w-6/12">
           <div className="mb-4">
-            <h1 className="flex items-center gap-2 text-3xl font-bold text-text dark:text-white">
+            <Link
+              to={"/"}
+              className="flex btn btn-sm w-fit rounded border border-gray-300 items-center gap-2 font-semibold text-lg text-[#494949] hover:bg-gray-200 hover:underline duration-700"
+            >
+              <IoMdArrowRoundBack size={30} />
+              Back To Home
+            </Link>
+            <h1 className="mt-4 flex items-center gap-2 text-3xl font-bold text-text dark:text-white">
               <LuLogIn />
               Login To Start!
             </h1>
@@ -129,14 +137,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-        {/* text div */}
-        <div
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://st.depositphotos.com/3073153/4520/v/450/depositphotos_45205711-stock-illustration-city.jpg")`,
-          }}
-          className="bg-no-repeat min-h-[250px] bg-cover py-12 px-4 md:w-1/2 flex flex-col justify-center items-center text-center"
-        />
-        {/* text div */}
       </div>
     </div>
   );

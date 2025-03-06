@@ -7,8 +7,13 @@ import {
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import logo from "../../../assets/vobon_logo.png";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  if (location.pathname === "/login" || location.pathname === "/register") {
+    return <></>;
+  }
   return (
     <footer className="bg-primary dark:bg-[#1b1b1b]">
       <div className="text-white pt-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl">

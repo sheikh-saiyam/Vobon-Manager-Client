@@ -1,5 +1,5 @@
 import logo from "../../../assets/Logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import MobileNavbar from "./MobileNavbar";
@@ -9,10 +9,15 @@ import { SlLogout } from "react-icons/sl";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
+  const location = useLocation();
   const { user, loading, logOut } = useAuth();
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  if (location.pathname === "/login" || location.pathname === "/register") {
+    return <></>;
+  }
 
   return (
     <div className="sticky top-0 z-50 bg-[#f2fbff] dark:bg-[#1b1b1b] border-primary border-b-2 dark:border-white">
