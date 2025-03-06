@@ -20,7 +20,7 @@ const Register = () => {
   const api_url = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
-  const { setUser, createNewUser, updateUserProfile } = useAuth();
+  const { user, setUser, createNewUser, updateUserProfile } = useAuth();
   const [error, setError] = useState("");
 
   const handleRegister = (e) => {
@@ -92,6 +92,8 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  if (user) return navigate("/");
 
   return (
     <div>

@@ -19,7 +19,7 @@ const Login = () => {
   const location = useLocation();
   const navigatePath = location.state?.pathname || "/";
 
-  const { setUser, userLogin } = useAuth();
+  const { user, setUser, userLogin } = useAuth();
   const [error, setError] = useState("");
 
   const handleLogin = (e) => {
@@ -55,6 +55,8 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  if (user) return navigate("/");
 
   return (
     <div className="bg-base-200 dark:bg-black">
