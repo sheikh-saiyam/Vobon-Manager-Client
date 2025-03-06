@@ -14,7 +14,7 @@ const NewsAndBlogs = () => {
       id: 1,
       title: "5 Tips for Finding the Perfect Apartment in Dhaka",
       image:
-        "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2020/10/27/rupayan_photo_noor_3.jpg",
+        "https://intechproperties.com.bd/wp-content/uploads/2024/10/Flat-Rent-in-Dhaka.png",
       date: "2025-02-18",
       content:
         "Finding the perfect apartment can be challenging. Here are 5 essential tips to help you find your ideal home in Dhaka...",
@@ -125,19 +125,19 @@ const NewsAndBlogs = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="h-full w-full"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                   {/* Text Container */}
                   <div className="w-full p-3">
                     <div>
-                      <p className="text-base text-gray-500 dark:text-gray-300 mb-2 font-semibold">
+                      <p className="text-sm text-gray-500 dark:text-gray-300 mb-2 font-semibold">
                         {item.date} | By {item.author}
                       </p>
-                      <h1 className="mt-2 text-2xl font-medium tracking-wider dark:text-white">
+                      <h1 className="mt-2 text-xl font-medium tracking-wider dark:text-white">
                         {item.title}
                       </h1>
-                      <p className="mt-1 text-gray-600 dark:text-[#ececec] tracking-widest">
+                      <p className="mt-1 text-gray-600 dark:text-[#ececec] tracking-widest text-sm">
                         {item.content}
                       </p>
                       <div className="flex flex-wrap gap-2 mt-4">
@@ -200,19 +200,19 @@ const NewsAndBlogs = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="h-full w-full"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                   {/* Text Container */}
                   <div className="w-full p-3">
                     <div>
-                      <p className="text-base text-gray-500 dark:text-gray-300 mb-2 font-semibold">
+                      <p className="text-sm text-gray-500 dark:text-gray-300 mb-2 font-semibold">
                         {item.date} | By {item.author}
                       </p>
-                      <h1 className="mt-2 text-2xl font-medium tracking-wider dark:text-white">
+                      <h1 className="mt-2 text-xl font-medium tracking-wider dark:text-white">
                         {item.title}
                       </h1>
-                      <p className="mt-1 text-gray-600 dark:text-[#ececec] tracking-widest">
+                      <p className="mt-1 text-gray-600 dark:text-[#ececec] tracking-widest text-sm">
                         {item.content}
                       </p>
                     </div>
