@@ -222,7 +222,7 @@ const Apartments = () => {
 
         {/* main container */}
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
-          {apartments?.apartments.map((apartment, idx) => (
+          {apartments.apartments.map((apartment, idx) => (
             <div
               key={idx}
               className="w-full mx-auto bg-white shadow-md rounded rounded-t-none overflow-hidden grid place-items-stretch dark:bg-[#1b1b1b]"
