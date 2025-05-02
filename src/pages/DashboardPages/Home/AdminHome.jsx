@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { FaUser } from "react-icons/fa";
 import { FaUsersGear } from "react-icons/fa6";
-import { MdOutlineApartment } from "react-icons/md";
-import Loader from "./../../../components/Loader/Loader";
-import useAuth from "../../../hooks/useAuth";
-import useRole from "../../../hooks/useRole";
 import { IoStatsChartSharp } from "react-icons/io5";
+import { MdOutlineApartment } from "react-icons/md";
+import DashboardCharts from "../../../components/Dashboard/Charts/DashboardCharts";
+import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useRole from "../../../hooks/useRole";
+import Loader from "./../../../components/Loader/Loader";
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -143,6 +144,11 @@ const AdminHome = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Chart */}
+      <div className="mt-6">
+        <DashboardCharts />
       </div>
     </div>
   );
