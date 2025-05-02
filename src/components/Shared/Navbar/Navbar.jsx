@@ -25,7 +25,7 @@ const Navbar = () => {
         <div>
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed dark:bg-white dark:p-2 dark:rounded"
+              className="w-16 h-12 border-l border-dashed dark:bg-white dark:p-2 dark:rounded"
               src={logo}
               alt="Vobon Manager"
             />

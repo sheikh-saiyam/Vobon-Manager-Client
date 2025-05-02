@@ -12,7 +12,7 @@ import Slide from "./Slide";
 
 const Slider = () => {
   return (
-    <div className="py-4">
+    <div className="pt-6 md:pt-10">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
