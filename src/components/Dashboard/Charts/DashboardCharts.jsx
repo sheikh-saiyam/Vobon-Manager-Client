@@ -31,7 +31,7 @@ const DashboardCharts = ({ chartsData }) => {
   return (
     <div className="grid lg:grid-cols-3 gap-6 w-full">
       {/* Bar Chart Card */}
-      <div className="lg:col-span-2 bg-white shadow-md rounded-lg p-4 h-[400px] flex flex-col">
+      <div className="lg:col-span-2 bg-white shadow-md rounded-lg p-4 h-[440px] flex flex-col">
         <h2 className="text-xl font-semibold text-gray-800 mb-1">
           Main Stats Overview
         </h2>
@@ -45,7 +45,7 @@ const DashboardCharts = ({ chartsData }) => {
               <XAxis dataKey="name" />
               <YAxis allowDecimals={false} />
               <Tooltip content={<CustomTooltip />} />
-              <Legend />
+              {/* <Legend /> */}
               <Bar dataKey="value" radius={[5, 5, 0, 0]}>
                 {mainStats.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={MAIN_COLORS[index]} />
@@ -56,7 +56,7 @@ const DashboardCharts = ({ chartsData }) => {
         </div>
       </div>
       {/* Pie Chart Card */}
-      <div className="lg:col-span-1 bg-white shadow-md rounded-lg p-4 h-[400px] flex flex-col">
+      <div className="lg:col-span-1 bg-white shadow-md rounded-lg p-4 h-[440px] flex flex-col">
         <h2 className="text-xl font-semibold text-gray-800 mb-1">
           Percentage Breakdown
         </h2>

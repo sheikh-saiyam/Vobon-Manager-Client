@@ -8,6 +8,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useRole from "../../../hooks/useRole";
 import Loader from "./../../../components/Loader/Loader";
+import StatCard from "../../../components/Dashboard/Cards/StatCard";
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -29,17 +30,14 @@ const AdminHome = () => {
       {/* admin stats container */}
       <div className="my-6 flex gap-6 items-center flex-wrap md:flex-nowrap">
         {/* total apartments */}
-        <div className="place-items-stretch grid h-auto bg-gradient-to-r from-accent to-[#b8e5ff] w-full justify-center items-center rounded gap-4 px-3 py-6">
-          <div className="flex flex-col justify-start">
-            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
-              <MdOutlineApartment size={55} />{" "}
-              <span className="mt-1">{adminStats.apartments}</span>
-            </h1>
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
-              Total Apartments
-            </h3>
-          </div>
-        </div>
+        <StatCard
+  icon={MdOutlineApartment}
+  value={adminStats.apartments}
+  label="Total Apartments"
+  gradientFrom="#3b82f6"
+  gradientTo="#b8e5ff"
+/>
+
         {/* total users */}
         <div className="place-items-stretch grid h-auto bg-gradient-to-r from-[#D82DFF] to-[#FFDCFE] w-full justify-center items-center rounded gap-4 px-3 py-6">
           <div className="flex flex-col justify-start">
