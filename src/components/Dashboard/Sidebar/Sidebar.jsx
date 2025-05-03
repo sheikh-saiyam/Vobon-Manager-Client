@@ -10,8 +10,8 @@ import DashboardLoader from "../../Loader/DashboardLoader";
 
 const Sidebar = () => {
   const [role, isLoading] = useRole();
-  if (isLoading) return <DashboardLoader />;
-  
+  if (isLoading) return ;
+
   return (
     <div className="flex flex-col h-full">
       {/* Logo container */}
