@@ -11,19 +11,21 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import CustomTooltip from "./CustomTooltip";
 
 const COLORS = ["#00C49F", "#FF8042"];
+const MAIN_COLORS = ["#FF74A1", "#F098FF", "#9DD1FB"];
 
 const DashboardCharts = ({ chartsData }) => {
   const mainStats = [
-    { name: "Users", value: chartsData.users },
-    { name: "Members", value: chartsData.members },
+    { name: "Total Users", value: chartsData.users },
+    { name: "Total Members", value: chartsData.members },
     { name: "Total Apartments", value: chartsData.apartments },
   ];
 
   const percentageStats = [
-    { name: "Available %", value: chartsData.availablePercentage },
-    { name: "Agreement %", value: chartsData.agreementPercentage },
+    { name: "Available Apartments %", value: chartsData.availablePercentage },
+    { name: "Agreement Apartments %", value: chartsData.agreementPercentage },
   ];
 
   return (
@@ -42,9 +44,13 @@ const DashboardCharts = ({ chartsData }) => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis allowDecimals={false} />
-              <Tooltip />
+              <Tooltip content={<CustomTooltip />} />
               <Legend />
-              <Bar dataKey="value" fill="#8884d8" radius={[5, 5, 0, 0]} />
+              <Bar dataKey="value" radius={[5, 5, 0, 0]}>
+                {mainStats.map((_, index) => (
+                  <Cell key={`cell-${index}`} fill={MAIN_COLORS[index]} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -74,7 +80,7 @@ const DashboardCharts = ({ chartsData }) => {
                   <Cell key={`cell-${index}`} fill={COLORS[index]} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip content={<CustomTooltip />} />
               <Legend />
             </PieChart>
           </ResponsiveContainer>
