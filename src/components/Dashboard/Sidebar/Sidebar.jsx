@@ -6,10 +6,12 @@ import MemberLinks from "./MemberLinks";
 import AdminLinks from "./AdminLinks";
 import useRole from "../../../hooks/useRole";
 import { MdOutlineDashboard } from "react-icons/md";
+import DashboardLoader from "../../Loader/DashboardLoader";
 
 const Sidebar = () => {
-  const [role] = useRole();
-
+  const [role, isLoading] = useRole();
+  if (isLoading) return <DashboardLoader />;
+  
   return (
     <div className="flex flex-col h-full">
       {/* Logo container */}
