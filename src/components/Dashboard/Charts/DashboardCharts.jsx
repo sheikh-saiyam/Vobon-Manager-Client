@@ -2,36 +2,34 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   Legend,
+  Pie,
+  PieChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
 
-const mainStats = [
-  { name: "Users", value: 9 },
-  { name: "Members", value: 13 },
-  { name: "Total Apartments", value: 36 },
-  { name: "Available Apartments", value: 23 },
-  { name: "Agreement Apartments", value: 13 },
-];
-
-import { Cell, Pie, PieChart } from "recharts";
-
-const percentageStats = [
-  { name: "Available %", value: 64 },
-  { name: "Agreement %", value: 36 },
-];
-
-// Custom colors for the two sections
 const COLORS = ["#00C49F", "#FF8042"];
 
-const DashboardCharts = () => {
+const DashboardCharts = ({ chartsData }) => {
+  const mainStats = [
+    { name: "Users", value: chartsData.users },
+    { name: "Members", value: chartsData.members },
+    { name: "Total Apartments", value: chartsData.apartments },
+  ];
+
+  const percentageStats = [
+    { name: "Available %", value: chartsData.availablePercentage },
+    { name: "Agreement %", value: chartsData.agreementPercentage },
+  ];
+
   return (
-    <div className="grid md:grid-cols-2 gap-6 w-full">
+    <div className="grid lg:grid-cols-3 gap-6 w-full">
       {/* Bar Chart Card */}
-      <div className="bg-white shadow-md rounded-2xl p-4 h-[400px] flex flex-col">
+      <div className="lg:col-span-2 bg-white shadow-md rounded-lg p-4 h-[400px] flex flex-col">
         <h2 className="text-xl font-semibold text-gray-800 mb-1">
           Main Stats Overview
         </h2>
@@ -51,9 +49,8 @@ const DashboardCharts = () => {
           </ResponsiveContainer>
         </div>
       </div>
-
       {/* Pie Chart Card */}
-      <div className="bg-white shadow-md rounded-2xl p-4 h-[400px] flex flex-col">
+      <div className="lg:col-span-1 bg-white shadow-md rounded-lg p-4 h-[400px] flex flex-col">
         <h2 className="text-xl font-semibold text-gray-800 mb-1">
           Percentage Breakdown
         </h2>

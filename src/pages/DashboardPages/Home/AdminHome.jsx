@@ -148,7 +148,7 @@ const AdminHome = () => {
 
       {/* Chart */}
       <div className="mt-6">
-        <DashboardCharts />
+        <DashboardCharts chartsData={adminStats} />
       </div>
     </div>
   );
