@@ -9,19 +9,12 @@ const DashboardLoader = () => {
         {/* Title Skeleton */}
         <div className="h-8 w-40 bg-white rounded mx-auto skeleton" />
 
-        {/* Nav Skeleton */}
-        <div className="flex flex-col gap-4 mt-6">
-          {[...Array(4)].map((_, idx) => (
-            <div key={idx} className="h-10 bg-white w-full rounded skeleton" />
-          ))}
-        </div>
-
-        {/* Bottom Nav Skeleton */}
-        <div className="mt-auto flex flex-col gap-3">
-          {[...Array(2)].map((_, idx) => (
-            <div key={idx} className="h-10 bg-white w-full rounded skeleton" />
-          ))}
-        </div>
+        {[...Array(4)].map((_, i) => (
+        <div
+          key={i}
+          className="h-10 bg-white rounded w-full animate-pulse"
+        />
+      ))}
       </div>
 
       {/* Main Content Skeleton */}
