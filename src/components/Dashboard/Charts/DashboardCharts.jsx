@@ -1,67 +1,91 @@
 import {
-  BarChart,
   Bar,
-  AreaChart,
-  Area,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from "recharts";
+import CustomTooltip from "./CustomTooltip";
 
-const mainStats = [
-  { name: "Users", value: 9 },
-  { name: "Members", value: 13 },
-  { name: "Total Apartments", value: 36 },
-  { name: "Available Apartments", value: 23 },
-  { name: "Agreement Apartments", value: 13 },
-];
+const COLORS = ["#00C49F", "#FF8042"];
+const MAIN_COLORS = ["#FF74A1", "#F098FF", "#9DD1FB"];
 
-const percentageStats = [
-  { name: "Available %", value: 64 },
-  { name: "Agreement %", value: 36 },
-];
+const DashboardCharts = ({ chartsData }) => {
+  const mainStats = [
+    { name: "Total Users", value: chartsData.users },
+    { name: "Total Members", value: chartsData.members },
+    { name: "Total Apartments", value: chartsData.apartments },
+  ];
 
-const DashboardCharts = () => {
+  const percentageStats = [
+    { name: "Available Apartments %", value: chartsData.availablePercentage },
+    { name: "Agreement Apartments %", value: chartsData.agreementPercentage },
+  ];
+
   return (
-    <div className="grid md:grid-cols-2 gap-8 w-full h-[400px]">
-      {/* Bar Chart */}
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={mainStats}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis allowDecimals={false} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#8884d8" radius={[5, 5, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
-
-      {/* Area Chart */}
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={percentageStats}>
-          <defs>
-            <linearGradient id="colorPercent" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#00C49F" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#00C49F" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis domain={[0, 100]} />
-          <Tooltip />
-          <Legend />
-          <Area
-            type="monotone"
-            dataKey="value"
-            stroke="#00C49F"
-            fillOpacity={1}
-            fill="url(#colorPercent)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+    <div className="grid lg:grid-cols-3 gap-6 w-full">
+      {/* Bar Chart Card */}
+      <div className="lg:col-span-2 bg-white shadow-md rounded-lg p-4 h-[440px] flex flex-col">
+        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+          Main Stats Overview
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Monthly data distribution in bar format
+        </p>
+        <div className="flex-grow">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={mainStats}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis allowDecimals={false} />
+              <Tooltip content={<CustomTooltip />} />
+              {/* <Legend /> */}
+              <Bar dataKey="value" radius={[5, 5, 0, 0]}>
+                {mainStats.map((_, index) => (
+                  <Cell key={`cell-${index}`} fill={MAIN_COLORS[index]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      {/* Pie Chart Card */}
+      <div className="lg:col-span-1 bg-white shadow-md rounded-lg p-4 h-[440px] flex flex-col">
+        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+          Percentage Breakdown
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Comparison of available vs agreement percentages
+        </p>
+        <div className="flex-grow">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={percentageStats}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={100}
+                paddingAngle={5}
+                dataKey="value"
+                label
+              >
+                {percentageStats.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+              </Pie>
+              <Tooltip content={<CustomTooltip />} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
     </div>
   );
 };

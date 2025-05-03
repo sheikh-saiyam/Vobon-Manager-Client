@@ -7,6 +7,7 @@ import UserHome from "../Home/UserHome";
 
 const Dashboard = () => {
   const [role] = useRole();
+
   return (
     <DashboardContainer>
       <SectionHeader
@@ -18,7 +19,6 @@ const Dashboard = () => {
       {role === "user" && <UserHome />}
       {role === "member" && <MemberHome />}
       {role === "admin" && <AdminHome />}
-      {/* role based dashboard home page */}
     </DashboardContainer>
   );
 };

@@ -8,6 +8,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useRole from "../../../hooks/useRole";
 import Loader from "./../../../components/Loader/Loader";
+import StatCard from "../../../components/Dashboard/Cards/StatCard";
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -29,41 +30,29 @@ const AdminHome = () => {
       {/* admin stats container */}
       <div className="my-6 flex gap-6 items-center flex-wrap md:flex-nowrap">
         {/* total apartments */}
-        <div className="place-items-stretch grid h-auto bg-gradient-to-r from-accent to-[#b8e5ff] w-full justify-center items-center rounded gap-4 px-3 py-6">
-          <div className="flex flex-col justify-start">
-            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
-              <MdOutlineApartment size={55} />{" "}
-              <span className="mt-1">{adminStats.apartments}</span>
-            </h1>
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
-              Total Apartments
-            </h3>
-          </div>
-        </div>
+        <StatCard
+          icon={MdOutlineApartment}
+          value={adminStats?.apartments}
+          label="Total Apartments"
+          gradientFrom="#3b82f6"
+          gradientTo="#b8e5ff"
+        />
         {/* total users */}
-        <div className="place-items-stretch grid h-auto bg-gradient-to-r from-[#D82DFF] to-[#FFDCFE] w-full justify-center items-center rounded gap-4 px-3 py-6">
-          <div className="flex flex-col justify-start">
-            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
-              <FaUser size={45} />{" "}
-              <span className="mt-1">{adminStats.users}</span>
-            </h1>
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
-              Total Users
-            </h3>
-          </div>
-        </div>
+        <StatCard
+          icon={FaUser}
+          value={adminStats?.users}
+          label="Total Users"
+          gradientFrom="#D82DFF"
+          gradientTo="#FFDCFE"
+        />
         {/* total members */}
-        <div className="place-items-stretch grid h-auto bg-gradient-to-r from-[#FF0E5F] to-[#ff90b3] w-full justify-center items-center rounded gap-4 px-3 py-6">
-          <div className="flex flex-col justify-start">
-            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
-              <FaUsersGear size={50} />{" "}
-              <span className="mt-1">{adminStats.members}</span>
-            </h1>
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
-              Total Members
-            </h3>
-          </div>
-        </div>
+        <StatCard
+          icon={FaUsersGear}
+          value={adminStats?.members}
+          label="Total Members"
+          gradientFrom="#FF0E5F"
+          gradientTo="#ff90b3"
+        />
       </div>
 
       <div className="flex flex-col lg:flex lg:flex-row items-center gap-6">
@@ -120,7 +109,7 @@ const AdminHome = () => {
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.availablePercentage}%
+                    {adminStats?.availablePercentage}%
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
@@ -134,7 +123,7 @@ const AdminHome = () => {
                 <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl flex items-center gap-3">
                   <MdOutlineApartment size={55} />{" "}
                   <span className="mt-1">
-                    {adminStats.agreementPercentage}%
+                    {adminStats?.agreementPercentage}%
                   </span>
                 </h1>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mt-2 text-white">
@@ -148,7 +137,7 @@ const AdminHome = () => {
 
       {/* Chart */}
       <div className="mt-6">
-        <DashboardCharts />
+        <DashboardCharts chartsData={adminStats} />
       </div>
     </div>
   );

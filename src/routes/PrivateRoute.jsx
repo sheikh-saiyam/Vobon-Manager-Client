@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
+import DashboardLoader from "../components/Loader/DashboardLoader";
 import useAuth from "../hooks/useAuth";
-import Loader from "../components/Loader/Loader";
 import useRole from "../hooks/useRole";
 
 const PrivateRoute = ({ children }) => {
@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
 
   if (user && user.email) return children;
 
-  if (loading || isLoading) return <Loader />;
+  if (loading || isLoading) return <DashboardLoader />;
 
   return <Navigate state={location} to="/login" />;
 };
