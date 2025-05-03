@@ -1,14 +1,12 @@
 import {
-  BarChart,
   Bar,
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
+  BarChart,
   CartesianGrid,
-  Tooltip,
   Legend,
   ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
 
 const mainStats = [
@@ -19,10 +17,15 @@ const mainStats = [
   { name: "Agreement Apartments", value: 13 },
 ];
 
+import { Cell, Pie, PieChart } from "recharts";
+
 const percentageStats = [
   { name: "Available %", value: 64 },
   { name: "Agreement %", value: 36 },
 ];
+
+// Custom colors for the two sections
+const COLORS = ["#00C49F", "#FF8042"];
 
 const DashboardCharts = () => {
   return (
@@ -39,28 +42,26 @@ const DashboardCharts = () => {
         </BarChart>
       </ResponsiveContainer>
 
-      {/* Area Chart */}
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={percentageStats}>
-          <defs>
-            <linearGradient id="colorPercent" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#00C49F" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#00C49F" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis domain={[0, 100]} />
+      {/* Pie Chart */}
+      <ResponsiveContainer width="100%" height={300}>
+        <PieChart>
+          <Pie
+            data={percentageStats}
+            cx="50%"
+            cy="50%"
+            innerRadius={60} // Makes it a donut
+            outerRadius={100}
+            paddingAngle={5}
+            dataKey="value"
+            label
+          >
+            {percentageStats.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index]} />
+            ))}
+          </Pie>
           <Tooltip />
           <Legend />
-          <Area
-            type="monotone"
-            dataKey="value"
-            stroke="#00C49F"
-            fillOpacity={1}
-            fill="url(#colorPercent)"
-          />
-        </AreaChart>
+        </PieChart>
       </ResponsiveContainer>
     </div>
   );
