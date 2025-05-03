@@ -27,7 +27,6 @@ const Sidebar = () => {
       </div>
 
       <hr className="my-6 border border-white" />
-      {/* Logo container */}
 
       {/* Role Based Links */}
       <div className="flex-grow">

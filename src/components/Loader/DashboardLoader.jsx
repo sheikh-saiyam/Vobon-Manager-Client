@@ -10,11 +10,8 @@ const DashboardLoader = () => {
         <div className="h-8 w-40 bg-white rounded mx-auto skeleton" />
 
         {[...Array(4)].map((_, i) => (
-        <div
-          key={i}
-          className="h-10 bg-white rounded w-full animate-pulse"
-        />
-      ))}
+          <div key={i} className="h-10 bg-white rounded w-full animate-pulse" />
+        ))}
       </div>
 
       {/* Main Content Skeleton */}
